@@ -31,8 +31,8 @@ let OutPut = {
     out7: document.querySelector("#out7")
 };
 
-function getInputVal(val) {
-    let SNum = val.value.toUpperCase().split("");
+function getInputVal(data) {
+    let SNum = data.value.toUpperCase().split("");
     let partOne = SNum[0] + SNum[1] + SNum[2];
     let partTwo = SNum[3] + SNum[4];
     let partThree = SNum[5] + SNum[6] + SNum[7] + SNum[8];
