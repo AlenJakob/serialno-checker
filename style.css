@@ -112,6 +112,21 @@ input[type=checkbox] {
     transform: scale(1.5);
 }
 
-.message{
-    padding:1rem!important;
+.message {
+    padding: 1rem!important;
+}
+
+.is-on-warranty {
+    color: #fff;
+    background-color: green;
+}
+
+.check-is-warranty {
+    color: #fff;
+    background-color: orange;
+}
+
+.is-out-warranty {
+    color: #fff;
+    background-color: red;
 }

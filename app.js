@@ -1,49 +1,47 @@
-let testNum = "018F7R33010269";
-let popup = document.querySelector("#popup");
-let serialNumIn = document.querySelector("#serialNum");
-let outNumVal = document.querySelector("#outNumVal");
-let checkBtn = document.querySelector("#checkBtn");
-let checkInfo = document.querySelector("#checkInfo");
+const testNum = "018F7R33010269";
+const popup = document.querySelector("#popup");
+const serialNumIn = document.querySelector("#serialNum");
+const outNumVal = document.querySelector("#outNumVal");
+const formTrigger = document.querySelector('.form-trigger')
+const checkBtn = document.querySelector("#checkBtn");
+const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
 // is-loading and remove after 1 second.
-let control = document.querySelector(".control");
+const control = document.querySelector(".control");
 
 
 
-let outYear = document.querySelector("#outYear");
-let outMonth = document.querySelector("#outMonth");
-let outDay = document.querySelector("#outDay");
 
-let fullData = {
-    year: document.querySelector("#outYear"),
-    month: document.querySelector("#outMonth"),
-    day: document.querySelector("#outDay")
-}
 
 let yearData = document.querySelector("#yearData");
 let monthData = document.querySelector("#monthData");
 let dayData = document.querySelector("#dayData");
 
 let OutPut = {
-    out4: document.querySelector("#out4"),
-    out5: document.querySelector("#out5"),
-    out6: document.querySelector("#out6"),
-    out7: document.querySelector("#out7")
+    displaySerialNum4: document.querySelector("#out4"),
+    displaySerialNum5: document.querySelector("#out5"),
+    displaySerialNum6: document.querySelector("#out6"),
+    displaySerialNum7: document.querySelector("#out7")
 };
 
-function getInputVal(data) {
-    let SNum = data.value.toUpperCase().split("");
-    let partOne = SNum[0] + SNum[1] + SNum[2];
-    let partTwo = SNum[3] + SNum[4];
-    let partThree = SNum[5] + SNum[6] + SNum[7] + SNum[8];
-    let partFour = SNum[9] + SNum[10] + SNum[11] + SNum[12];
-    if (val.value.length === 13) {
-        OutPut["out4"].innerText = partOne;
-        OutPut["out5"].innerText = partTwo;
-        OutPut["out6"].innerText = partThree;
+function displaySerialNumberToDom(inputVal) {
+    let SNum = inputVal.value.toUpperCase().split("");
+
+    const [n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12] = SNum
+    // separate parts of serial no.
+    let partOne = n0 + n1 + n2;
+    let partTwo = n3 + n4;
+    let partThree = n5 + n6 + n7 + n8;
+    let partFour = n9 + n10 + n11 + n12;
+
+    if (inputVal.value.length === 13) {
+        OutPut["displaySerialNum4"].innerText = partOne;
+        OutPut["displaySerialNum5"].innerText = partTwo;
+        OutPut["displaySerialNum6"].innerText = partThree;
+
         getDateOfProduction = [...partThree];
 
-        OutPut["out7"].innerText = partFour;
+        OutPut["displaySerialNum7"].innerText = partFour;
     }
     checkDate(getDateOfProduction);
 }
@@ -69,47 +67,53 @@ let months = {
     b: "november",
     c: "december"
 };
-//trigger keyup
-serialNumIn.addEventListener("keyup", () => {
 
+// submit form to display data to Dom
+formTrigger.addEventListener('submit', () => {
     control.classList.add("is-loading")
     setTimeout(function () {
         control.classList.remove("is-loading")
         checkInput(serialNumIn);
-        getInputVal(serialNumIn);
+        displaySerialNumberToDom(serialNumIn);
     }, 800);
-
     outNumVal.innerText = serialNumIn.value;
-});
-//trigger click
-checkBtn.addEventListener("click", () => {
-    control.classList.add("is-loading")
-    setTimeout(function () {
-        control.classList.remove("is-loading")
-        checkInput(serialNumIn);
-        getInputVal(serialNumIn);
-    }, 1000);
+})
 
-    outNumVal.innerText = serialNumIn.value;
-});
 
-function checkInput(input) {
-    console.log("its input " + input.value + " " + input.value.length);
-    if (input.value.length < 13) {
-        popup.innerText = "Serial number length possible 13 characters";
-        popup.style.color = "#fff";
-        popup.style.backgroundColor = "orange"
-    } else if (input.value.length >= 14) {
-        popup.innerText = "Serial number length cant be bigger than 15";
 
-        popup.style.backgroundColor = "red"
+const cleanClass = element => element.className = '';
+const setMessageAlert = message =>{
+    // warning message
+    popup.classList.add("check-is-warranty", "message")
+    // correct message
+    popup.classList.add("is-on-warranty", "message")
+    // alert message
+    popup.classList.add("is-out-warranty", "message")
 
-    } else if (input.value.length === 13) {
-        popup.innerText = "Serial number is correct";
-        popup.style.color = "#fff";
-        popup.style.backgroundColor = "green"
+}
+
+const checkInput = serialNumber => {
+
+    const passMessage = ["Warning Serial number length possible 13 characters", "Serial number length cant be bigger than 15", "Serial number is correct"]
+    const [serialNumWarning, serialNumCorrect, serialNumWrong] = passMessage;
+    //Cleaning class after every checking lenght of serial no.
+    if (serialNumber.value.length < 13) {
+        popup.innerText = serialNumWarning
+        cleanClass(popup)
+        popup.classList.add("check-is-warranty", "message")
+    } else if (serialNumber.value.length >= 14) {
+        popup.innerText = serialNumCorrect
+
+        cleanClass(popup)
+        popup.classList.add("is-out-warranty", "message")
+
+    } else if (serialNumber.value.length === 13) {
+        popup.innerText = serialNumWrong
+        cleanClass(popup)
+        popup.classList.add("is-on-warranty", "message")
     }
 }
+
 
 function checkDate(date) {
     let yearData = "";
@@ -140,12 +144,12 @@ function checkDate(date) {
     //check month of production
     let month = date[1].toUpperCase();
     let entries = Object.entries(months);
-
+    console.log(entries)
     entries.forEach(([key, val]) => {
         if (month == key.toUpperCase()) {
             monthData = val;
         } else {
-            //       if month are not correct view a message
+            //  if month are not correct view a message
             return;
         }
     });
@@ -156,21 +160,29 @@ function checkDate(date) {
         console.log("wrong data for day of production");
     } else {
         dayData = prodDay;
-
         // here will be handle success message
         console.log(" Day of production :" + prodDay);
     }
 
-    let fullDate = [yearData, monthData, dayData];
-    //   get full date of motor calculated by pattern
-    console.log("full date", fullDate);
-    fullData.year.innerText = fullDate[0]
-    fullData.month.innerText = fullDate[1]
-    fullData.day.innerText = fullDate[2]
+    displayDataToDom(yearData, monthData, dayData)
+}
+
+// function using to display data into Dom
+const displayDataToDom = (...fullDate) => {
+    const [yearData, monthData, dayData] = fullDate;
+    const displayDate = {
+        year: document.querySelector("#outYear"),
+        month: document.querySelector("#outMonth"),
+        day: document.querySelector("#outDay")
+    }
+    displayDate.year.innerText = yearData
+    displayDate.month.innerText = monthData
+    displayDate.day.innerText = dayData
 }
 
 
-//  handle checkbox
+
+//  handle checkbox display and hide
 
 checkInfo.addEventListener("change", (e) => {
     let checkbox = e.target
