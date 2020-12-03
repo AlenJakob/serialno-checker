@@ -1,0 +1,24 @@
+{
+  "name": "serialno-checker",
+  "version": "1.0.0",
+  "description": "The application that help check serial no. for warranty",
+  "main": "app.js",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenJakob/serialno-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlenJakob/serialno-checker/issues"
+  },
+  "homepage": "https://github.com/AlenJakob/serialno-checker#readme"
+}

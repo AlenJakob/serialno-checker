@@ -1,95 +1,95 @@
 * {
-    transition: 0.3s;
-    font-size: 1.1rem;
+  transition: 0.3s;
+  font-size: 1.1rem;
 }
 
 .container {
-    border: 1px solid grey;
+  border: 1px solid grey;
 }
 
 .container {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .output {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .outNum {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .ex {
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .header {
-    margin: 2rem 0;
-    padding: 1rem 0;
-    border-bottom: 1px solid green;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid green;
 }
 
 .info-box {
-    padding: 2rem;
-    margin: 5px !important;
-    display: flex;
-    border: 1px solid grey;
-    flex-direction: column;
+  padding: 2rem;
+  margin: 5px !important;
+  display: flex;
+  border: 1px solid grey;
+  flex-direction: column;
 }
 
 .output b {
-    color: green;
-    font-size: 1.4rem;
+  color: green;
+  font-size: 1.4rem;
 }
 
 .logo {
-    width: 250px;
+  width: 250px;
 }
 
 .message-body {
-    border-style: none !important;
-    padding: none;
+  border-style: none !important;
+  padding: none;
 }
 
 .container {
-    margin: 0.4rem !important;
-    border-radius: 3px;
-    box-shadow: 0 0 4px grey;
+  margin: 0.4rem !important;
+  border-radius: 3px;
+  box-shadow: 0 0 4px grey;
 }
 
 .m-1 {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .m-2 {
-    margin: 2rem !important;
+  margin: 2rem !important;
 }
 
 .message {
-    padding: 1rem;
-    margin: 0 !important;
+  padding: 1rem;
+  margin: 0 !important;
 }
 
 .m-0 {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .m-1 {
-    margin: 0.1 !important;
+  margin: 0.1 !important;
 }
 
 .p-2 {
-    padding: 0.2rem !important;
+  padding: 0.2rem !important;
 }
 
 .p-0 {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 #output .list-item b {
-    color: green;
+  color: green;
 }
 
 /* is-loading */
@@ -97,36 +97,46 @@
 /* checkbox */
 
 .checkbox-close-info {
-    margin: 1.5rem 0!important;
-    display: flex;
-    align-items: center;
-    padding-bottom: 0;
-    color: orangered;
-    font-weight: bold;
-    max-height: 50px;
+  margin: 1.5rem 0 !important;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+  color: #009b84;
+  font-weight: bold;
+  max-height: 50px;
 }
 
-input[type=checkbox] {
-    margin: 1rem;
-    cursor: pointer;
-    transform: scale(1.5);
+input[type="checkbox"] {
+  margin: 1rem;
+  cursor: pointer;
+  transform: scale(1.5);
 }
 
 .message {
-    padding: 1rem!important;
+  padding: 1rem !important;
 }
 
 .is-on-warranty {
-    color: #fff;
-    background-color: green;
+  color: #fff;
+  background-color: #48c774;
 }
 
 .check-is-warranty {
-    color: #fff;
-    background-color: orange;
+  color: #fff;
+  background-color: orange;
 }
 
 .is-out-warranty {
-    color: #fff;
-    background-color: red;
+  color: #fff;
+  background-color: red;
+}
+.infobox {
+  display: none;
+}
+.buttons {
+  margin-top: 1rem;
+}
+
+.message-header {
+  background-color: #00d1b2;
 }
