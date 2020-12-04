@@ -117,29 +117,28 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"helpers/add.js":[function(require,module,exports) {
+})({"helpers/countMonths.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.substract = exports.add = void 0;
+exports.checkFromProd = checkFromProd;
 
-var add = function add(a, b) {
-  return a + b;
-};
+function checkFromProd(dateFrom, dateTo) {
+  if (dateFrom.getFullYear() > dateTo.getFullYear()) {
+    return "is false year ";
+  } else {
+    return dateTo.getMonth() - dateFrom.getMonth() + 12 * (dateTo.getFullYear() - dateFrom.getFullYear());
+  }
+} // months pattern
 
-exports.add = add;
 
-var substract = function substract(a, b) {
-  return a - b;
-};
-
-exports.substract = substract;
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 },{}],"app.js":[function(require,module,exports) {
 "use strict";
 
-var _add = require("./helpers/add");
+var _countMonths = require("./helpers/countMonths");
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -161,8 +160,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-console.log((0, _add.add)(5, 5));
-console.log((0, _add.substract)(115, 5));
 var testNum = "018F7R33010269";
 var popup = document.querySelector("#popup");
 var serialNumIn = document.querySelector("#serialNum");
@@ -183,7 +180,8 @@ var OutPut = {
   displaySerialNum4: document.querySelector("#out4"),
   displaySerialNum5: document.querySelector("#out5"),
   displaySerialNum6: document.querySelector("#out6"),
-  displaySerialNum7: document.querySelector("#out7")
+  displaySerialNum7: document.querySelector("#out7"),
+  displayMonth: document.querySelector("#out8")
 };
 
 function displaySerialNumberToDom(inputVal) {
@@ -290,6 +288,7 @@ var checkInput = function checkInput(serialNumber) {
 function checkDate(date) {
   var yearData = "";
   var monthData = "";
+  var monthDataDecimal = "";
   var dayData = "";
 
   switch (date[0]) {
@@ -320,19 +319,20 @@ function checkDate(date) {
     default:
       yearData = "Data is not Reconized";
       console.log("Sorry, have no information about that  ".concat(date[0], "."));
-  } //check month of production
+  } //check month of production and display to Dom
 
 
   var month = date[1].toUpperCase();
   var entries = Object.entries(months);
-  console.log(entries);
-  entries.forEach(function (_ref) {
+  console.log("entries", entries);
+  entries.forEach(function (_ref, index) {
     var _ref2 = _slicedToArray(_ref, 2),
         key = _ref2[0],
         val = _ref2[1];
 
     if (month == key.toUpperCase()) {
       monthData = val;
+      monthDataDecimal = index + 1;
     } else {
       //  if month are not correct view a message
       return;
@@ -351,6 +351,11 @@ function checkDate(date) {
   }
 
   displayDataToDom(yearData, monthData, dayData);
+  var d = new Date();
+  var dateOfYearAndMonth = "".concat(d.getFullYear(), " ").concat(d.getMonth());
+  var resultOfMonthsFromProd = (0, _countMonths.checkFromProd)(new Date(yearData, monthDataDecimal), new Date());
+  console.log(resultOfMonthsFromProd);
+  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;
 } // function using to display data into Dom
 
 
@@ -382,7 +387,7 @@ checkInfo.addEventListener("change", function (e) {
     document.querySelector("#infobox").style.display = "none";
   }
 });
-},{"./helpers/add":"helpers/add.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./helpers/countMonths":"helpers/countMonths.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -410,7 +415,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57475" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62219" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

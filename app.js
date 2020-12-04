@@ -1,8 +1,5 @@
-import { add, substract } from "./helpers/add";
+import { checkFromProd } from "./helpers/countMonths";
 
-console.log(add(5, 5));
-
-console.log(substract(115, 5));
 const testNum = "018F7R33010269";
 const popup = document.querySelector("#popup");
 const serialNumIn = document.querySelector("#serialNum");
@@ -25,6 +22,7 @@ let OutPut = {
   displaySerialNum5: document.querySelector("#out5"),
   displaySerialNum6: document.querySelector("#out6"),
   displaySerialNum7: document.querySelector("#out7"),
+  displayMonth: document.querySelector("#out8"),
 };
 
 function displaySerialNumberToDom(inputVal) {
@@ -120,8 +118,8 @@ const checkInput = (serialNumber) => {
 function checkDate(date) {
   let yearData = "";
   let monthData = "";
+  let monthDataDecimal = "";
   let dayData = "";
-
   switch (date[0]) {
     case "Q":
       yearData = yearQ;
@@ -146,13 +144,14 @@ function checkDate(date) {
       console.log(`Sorry, have no information about that  ${date[0]}.`);
   }
 
-  //check month of production
+  //check month of production and display to Dom
   let month = date[1].toUpperCase();
   let entries = Object.entries(months);
-  console.log(entries);
-  entries.forEach(([key, val]) => {
+  console.log("entries", entries);
+  entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {
       monthData = val;
+      monthDataDecimal = index + 1;
     } else {
       //  if month are not correct view a message
       return;
@@ -170,6 +169,15 @@ function checkDate(date) {
   }
 
   displayDataToDom(yearData, monthData, dayData);
+
+  const d = new Date();
+  const dateOfYearAndMonth = `${d.getFullYear()} ${d.getMonth()}`;
+  const resultOfMonthsFromProd = checkFromProd(
+    new Date(yearData, monthDataDecimal),
+    new Date()
+  );
+  console.log(resultOfMonthsFromProd);
+  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;
 }
 
 // function using to display data into Dom
