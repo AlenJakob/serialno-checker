@@ -53,7 +53,10 @@ let yearR = 2017;
 let yearS = 2018;
 let yearT = 2019;
 let yearU = 2020;
-let yearW = 2021;
+let yearV = 2021;
+let yearW = 2022;
+let yearX = 2023;
+
 
 let months = {
   1: "january",
@@ -136,8 +139,13 @@ function checkDate(date) {
     case "U":
       yearData = yearU;
       break;
-    case "W":
+    case "V":
+      yearData = yearV;
+      break;
+       case "W":
       yearData = yearW;
+      break; case "X":
+      yearData = yearX;
       break;
     default:
       yearData = "Data is not Reconized";
