@@ -225,7 +225,9 @@ var yearR = 2017;
 var yearS = 2018;
 var yearT = 2019;
 var yearU = 2020;
-var yearW = 2021;
+var yearV = 2021;
+var yearW = 2022;
+var yearX = 2023;
 var months = {
   1: "january",
   2: "february",
@@ -312,8 +314,16 @@ function checkDate(date) {
       yearData = yearU;
       break;
 
+    case "V":
+      yearData = yearV;
+      break;
+
     case "W":
       yearData = yearW;
+      break;
+
+    case "X":
+      yearData = yearX;
       break;
 
     default:
@@ -415,7 +425,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62219" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60219" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

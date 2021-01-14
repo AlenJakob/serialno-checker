@@ -40,7 +40,7 @@
 }
 
 .output b {
-  color: green;
+  color: rgb(235, 102, 8);
   font-size: 1.4rem;
 }
 
@@ -89,7 +89,7 @@
 }
 
 #output .list-item b {
-  color: green;
+  color: rgb(235, 102, 8);
 }
 
 /* is-loading */
@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   padding-bottom: 0;
-  color: #009b84;
+  color: rgb(235, 102, 8);
   font-weight: bold;
   max-height: 50px;
 }
@@ -139,6 +139,14 @@ input[type="checkbox"] {
 
 .message-header {
   background-color: #00d1b2;
+}
+
+.message-header {
+  background-color: rgb(235, 102, 8);
+}
+button.is-orange {
+  background-color: rgb(235, 102, 8);
+  color: #fff;
 }
 
 
