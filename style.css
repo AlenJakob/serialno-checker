@@ -148,3 +148,7 @@ button.is-orange {
   background-color: rgb(235, 102, 8);
   color: #fff;
 }
+
+.is-justify-content-space-evenly {
+  justify-content: space-evenly;
+}

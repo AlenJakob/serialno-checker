@@ -149,5 +149,9 @@ button.is-orange {
   color: #fff;
 }
 
+.is-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
