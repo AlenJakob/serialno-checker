@@ -10,11 +10,12 @@ const checkBtn = document.querySelector("#checkBtn");
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
 // is-loading and remove after 1 second.
-const control = document.querySelector(".control");
+const control = document.querySelector("#checkBtn");
 
-formTrigger.addEventListener("submit", (e) => {  console.log("s")
-  e.preventDefault()
-  console.log("s")
+formTrigger.addEventListener("submit", (e) => {
+  console.log("s");
+  e.preventDefault();
+  console.log("s");
 });
 
 let yearData = document.querySelector("#yearData");

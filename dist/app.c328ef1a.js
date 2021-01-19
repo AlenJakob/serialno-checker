@@ -181,7 +181,7 @@ var checkBtn = document.querySelector("#checkBtn");
 var checkInfo = document.querySelector("#checkInfo");
 var getDateOfProduction = []; // is-loading and remove after 1 second.
 
-var control = document.querySelector(".control");
+var control = document.querySelector("#checkBtn");
 formTrigger.addEventListener("submit", function (e) {
   console.log("s");
   e.preventDefault();
