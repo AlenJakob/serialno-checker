@@ -12,7 +12,10 @@ let getDateOfProduction = [];
 // is-loading and remove after 1 second.
 const control = document.querySelector(".control");
 
-formTrigger.addEventListener("submit", (e) => e.preventDefault());
+formTrigger.addEventListener("submit", (e) => {  console.log("s")
+  e.preventDefault()
+  console.log("s")
+});
 
 let yearData = document.querySelector("#yearData");
 let monthData = document.querySelector("#monthData");
