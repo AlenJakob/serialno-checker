@@ -1,6 +1,7 @@
 import { checkFromProd } from "./helpers/countMonths";
-
+import { logo } from "./logo";
 const testNum = "018F7R33010269";
+document.querySelector(".logoDom").innerHTML = logo;
 const popup = document.querySelector("#popup");
 const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
@@ -56,7 +57,6 @@ let yearU = 2020;
 let yearV = 2021;
 let yearW = 2022;
 let yearX = 2023;
-
 
 let months = {
   1: "january",
@@ -142,9 +142,10 @@ function checkDate(date) {
     case "V":
       yearData = yearV;
       break;
-       case "W":
+    case "W":
       yearData = yearW;
-      break; case "X":
+      break;
+    case "X":
       yearData = yearX;
       break;
     default:
