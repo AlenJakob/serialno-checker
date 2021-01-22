@@ -131,7 +131,6 @@ function checkFromProd(dateFrom, dateTo) {
   if (dateFrom.getFullYear() > dateTo.getFullYear()) {
     return "is false year ";
   } else if (countedMonth < 0) {
-    console.log("ssssss", countedMonth);
     return 0;
   } else {
     return countedMonth;
