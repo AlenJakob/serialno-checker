@@ -156,3 +156,6 @@ button.is-orange {
 .content-mt-3 {
   margin-top: 3rem !important;
 }
+.btn-logo:hover .opacity0 {
+  opacity: .7;
+}
