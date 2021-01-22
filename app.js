@@ -193,7 +193,7 @@ function checkDate(date) {
     new Date()
   );
   console.log(resultOfMonthsFromProd);
-  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;
+  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd ;
 }
 
 // function using to display data into Dom

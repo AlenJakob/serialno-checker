@@ -126,10 +126,15 @@ Object.defineProperty(exports, "__esModule", {
 exports.checkFromProd = checkFromProd;
 
 function checkFromProd(dateFrom, dateTo) {
+  var countedMonth = dateTo.getMonth() - dateFrom.getMonth() + 12 * (dateTo.getFullYear() - dateFrom.getFullYear());
+
   if (dateFrom.getFullYear() > dateTo.getFullYear()) {
     return "is false year ";
+  } else if (countedMonth < 0) {
+    console.log("ssssss", countedMonth);
+    return 0;
   } else {
-    return dateTo.getMonth() - dateFrom.getMonth() + 12 * (dateTo.getFullYear() - dateFrom.getFullYear());
+    return countedMonth;
   }
 } // months pattern
 
@@ -451,7 +456,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63052" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52531" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
