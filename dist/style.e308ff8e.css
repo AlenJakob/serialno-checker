@@ -153,6 +153,9 @@ button.is-orange {
 .is-justify-content-space-evenly {
   justify-content: space-evenly;
 }
+.content-mt-3 {
+  margin-top: 3rem !important;
+}
 
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
