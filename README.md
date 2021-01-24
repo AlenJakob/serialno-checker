@@ -12,16 +12,16 @@
  - Remaining warranty time 
 
 # Technologies
-#
+
 ```sh
 - Parcel.js
 - Vanilla Javascript
 - Bulma
 ```
-#
+
 ##### Command - Running Project 
 #
-#
+
 ```sh
 $ npm install
 $ npm run dev
@@ -29,7 +29,7 @@ $ npm run dev
 
 ##### Command - Build Project
 #
-#
+
 ```sh
 $ npm run build
 ```
