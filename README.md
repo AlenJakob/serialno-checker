@@ -1,6 +1,6 @@
-# Warranty serial Number checker for electric motors
+# Serial Number Check
 
-The application that help check serial no. for warranty 
+--The application that help check serial number for warranty period 
 
 # Technologies
 ```sh
@@ -18,7 +18,10 @@ Build Command npm run build
 ```sh
 $ npm install
 $ npm run dev
-$ node app
+```
+# Build Project
+```sh
+$ npm run build
 ```
 License
 ----
