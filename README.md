@@ -1,29 +1,39 @@
-# Serial Number Check
 
---The application that help check serial number for warranty period 
+
+#  Serial Number - Check
+#
+#### simple app created with Vanilla JavaScript.
+#
+***
+#
+##### The application allows us to check motor serial number
+ - Date of production
+ - Place of production
+ - Remaining warranty time 
 
 # Technologies
+#
 ```sh
-$ Parcel.js
-$ Vanilla Javascript
-$ Bulma
+- Parcel.js
+- Vanilla Javascript
+- Bulma
 ```
-
-
-
-Command npm run dev
-Build Command npm run build 
-
-# Running Project
+#
+##### Command - Running Project 
+#
+#
 ```sh
 $ npm install
 $ npm run dev
 ```
-# Build Project
+
+##### Command - Build Project
+#
+#
 ```sh
 $ npm run build
 ```
-License
-----
-
+#### License
 MIT
+
+---
