@@ -1,8 +1,8 @@
 import { checkFromProd } from "./helpers/countMonths";
-import { logo } from "./logo";
+// import { logo } from "./logo";
 import { footer } from "./footer";
 const testNum = "018F7R33010269";
-document.querySelector(".logoDom").innerHTML = logo;
+// document.querySelector(".logoDom").innerHTML = logo;
 
 document.querySelector("#footer-in").innerHTML = footer;
 const popup = document.querySelector("#popup");

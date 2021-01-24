@@ -1,6 +1,7 @@
 * {
   transition: 0.3s;
   font-size: 1.1rem;
+  font-family: sans-serif;
 }
 
 .container {
@@ -131,9 +132,11 @@ input[type="checkbox"] {
   color: #fff;
   background-color: red;
 }
+
 .infobox {
   display: none;
 }
+
 .buttons {
   margin-top: 1rem;
 }
@@ -145,6 +148,7 @@ input[type="checkbox"] {
 .message-header {
   background-color: rgb(235, 102, 8);
 }
+
 button.is-orange {
   background-color: rgb(235, 102, 8);
   color: #fff;
@@ -153,14 +157,27 @@ button.is-orange {
 .is-justify-content-space-evenly {
   justify-content: space-evenly;
 }
+
 .content-mt-3 {
   margin-top: 3rem !important;
 }
+
 .info-mt-2 {
   margin-top: 2rem;
 }
+
 .btn-logo:hover .opacity0 {
   opacity: .7;
 }
+
+.logoStyle {
+  color: rgb(235, 102, 8)!important;
+}
+
+.logoStyle:hover {
+  color: rgb(230, 192, 137)!important;
+}
+
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
