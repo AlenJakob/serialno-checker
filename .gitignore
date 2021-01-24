@@ -1,6 +1,6 @@
 node_modules/
-/dist
+dist/
 .firebase/
 .cache/
 .firebasesrc
-pacage-lock.json
+package-lock.json
