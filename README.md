@@ -1,4 +1,5 @@
-# Warranty serial Number checker
+# Warranty serial Number checker for electric motors
+
 The application that help check serial no. for warranty 
 
 # Technologies
@@ -19,3 +20,7 @@ $ npm install
 $ npm run dev
 $ node app
 ```
+License
+----
+
+MIT
