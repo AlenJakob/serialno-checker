@@ -8,7 +8,7 @@
  - Place of production
  - Remaining warranty time 
 
-# Technologies
+#### Technologies
 
 ```sh
 - Parcel.js
