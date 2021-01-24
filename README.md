@@ -1,11 +1,8 @@
 
 
 #  Serial Number - Check
-#
 #### simple app created with Vanilla JavaScript.
-#
-***
-#
+
 ##### The application allows us to check motor serial number
  - Date of production
  - Place of production
