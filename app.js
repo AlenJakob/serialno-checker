@@ -47,6 +47,9 @@ function displaySerialNumberToDom(inputVal) {
     getDateOfProduction = [...partThree];
 
     OutPut["displaySerialNum7"].innerText = partFour;
+    for (let el in OutPut) {
+      OutPut[el].classList.add("tag", "is-medium");
+    }
   }
   checkDate(getDateOfProduction);
 }
@@ -170,6 +173,11 @@ const displayDataToDom = (...fullDate) => {
     month: document.querySelector("#outMonth"),
     day: document.querySelector("#outDay"),
   };
+
+  for (let el in displayDate) {
+    displayDate[el].classList.add("tag", "is-medium");
+  }
+
   displayDate.year.innerText = yearData;
   displayDate.month.innerText = monthData;
   displayDate.day.innerText = dayData;

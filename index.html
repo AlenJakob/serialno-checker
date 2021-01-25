@@ -30,7 +30,7 @@
     </div>
 
     <div class="columns is-justify-content-space-evenly content-mt-3">
-      <div class="column box m-0 is-5">
+      <div class="column box m-0 is-6">
         <article class="message is-orange p-0">
           <div class="message-header">
             <p>Bafang Warranty Checker</p>
@@ -44,7 +44,7 @@
                 id="serialNum"
                 class="input"
                 type="text"
-                value="040f5tc200584"
+                value="040f5TC200584"
               />
             </div>
 
@@ -52,69 +52,73 @@
               <button
                 type="submit"
                 id="checkBtn"
-                class="button is-dark is-outlined"
+                class="button has-text-white is-orange"
               >
                 Check
               </button>
             </div>
           </form>
         </div>
-        <div class="outNum" id="outNum">
-          Your Serial Number : <b id="outNumVal">Test output</b>
-        </div>
-        <div class="outNum" id="outNum">
-          Total period of warranty : <b>30 Months</b>
-        </div>
+        <ul class="outNum" id="outNum">
+          <div class="list-item">
+            Your Serial Number :
+            <b id="outNumVal">Test output</b>
+          </div>
+          <div class="outNum list-item">
+            Total period of warranty : <b class="has-text-dark">30 Months</b>
+          </div>
+        </ul>
 
         <ul id="output" class="list is-hoverable">
           <li class="list-item">
-            The total months from Produciton date is : <b id="out8"></b>
+            The total months from produciton date is: <b id="out8"></b>
           </li>
           <li class="list-item">
-            Signature of Controller and length of Cable : <b id="out4"></b>
+            Signature of Controller and length of Cable: <b id="out4"></b>
           </li>
-          <li class="list-item">Production Place : <b id="out5"></b></li>
-          <li class="list-item">Date of Production : <b id="out6"></b></li>
-          <li class="list-item">Signature Number motor : <b id="out7"></b></li>
+          <li class="list-item">Production place : <b id="out5"></b></li>
+          <li class="list-item">Date of production : <b id="out6"></b></li>
+          <li class="list-item">Signature number motor : <b id="out7"></b></li>
         </ul>
       </div>
       <div class="column box is-5">
         <div>
           <article class="message is-orange p-0">
             <div class="message-header">
-              <p>Check Your serial number motor Bafang</p>
+              <p>Info</p>
             </div>
-            <div class="message-body mt-1">
-              <div id="popup" class="message has-text-danger">
-                Here will be displayed serial Number of Motor
+            <div class="message-body mt-1 has-text-centered">
+              <div id="popup" class="message has-text-danger has-text-semibold">
+                Here will be displayed serial number of motor
               </div>
             </div>
           </article>
-          <ul class="list is-hoverable">
-            <li class="list-item ex">Example : <b>040f5tc200584</b></li>
-
+          <ul class="list is-hoverable has-text-centered">
             <li class="list-item ex">
-              Example : (<span
-                class="has-text-orange is-size-6 has-text-weight-semibold"
-              >
-                1 </span
-              >)<b> 040 _ </b>(<span
-                class="has-text-orange is-size-6 has-text-weight-semibold"
-              >
-                2 </span
-              >)<b> f5 _ </b>(<span
-                class="has-text-orange is-size-6 has-text-weight-semibold"
-              >
-                3 </span
-              >)<b> tc20 _ </b> (<span
-                class="has-text-orange is-size-6 has-text-weight-semibold"
-              >
-                4 </span
-              >)<b> 0584</b>
+              Serial number example: <b>040F5TC200584</b>
             </li>
+
+            <ol class="list-item ex">
+              (<span class="has-text-orange is-size-6 has-text-weight-semibold"
+                >1</span
+              >)
+              <b>040 </b>
+              (<span class="has-text-orange is-size-6 has-text-weight-semibold">
+                2</span
+              >)
+              <b>F5</b>
+              (<span class="has-text-orange is-size-6 has-text-weight-semibold">
+                3</span
+              >)
+              <b>TC20</b>
+              (<span class="has-text-orange is-size-6 has-text-weight-semibold">
+                4</span
+              >)
+              <b>0584</b>
+            </ol>
           </ul>
 
-          <ul class="list year-list is-hoverable">
+          <ul class="list year-list is-hoverable has-text-centered">
             <li class="list-item">Year: <b id="outYear"></b></li>
             <li class="list-item">Month: <b id="outMonth"></b></li>
             <li class="list-item">Day: <b id="outDay"></b></li>
@@ -133,7 +137,7 @@
             type="checkbox"
             name="exampleCheckboxBlockDefault"
           />
-          <label>show / hide information</label>
+          <label class="has-text-dark">( show / hide ) information</label>
         </div>
       </div>
     </div>

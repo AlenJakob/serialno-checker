@@ -92,11 +92,11 @@
   color: rgb(235, 102, 8);
 }
 #output .list-item b {
-  color: rgb(235, 102, 8);
-  color: #48c774;
+  /* color: rgb(235, 102, 8); */
 }
 .year-list b {
-  color: #48c774;
+  /* color: #48c774;
+  color: rgb(235, 102, 8); */
 }
 /* is-loading */
 
