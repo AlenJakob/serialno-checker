@@ -16,9 +16,7 @@ let getDateOfProduction = [];
 const control = document.querySelector("#checkBtn");
 
 formTrigger.addEventListener("submit", (e) => {
-  console.log("s");
   e.preventDefault();
-  console.log("s");
 });
 
 let yearData = document.querySelector("#yearData");
@@ -163,7 +161,6 @@ function checkDate(date) {
   //check month of production and display to Dom
   let month = date[1].toUpperCase();
   let entries = Object.entries(months);
-  console.log("entries", entries);
   entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {
       monthData = val;
@@ -177,11 +174,9 @@ function checkDate(date) {
   const prodDay = date[2] + date[3];
   if (prodDay <= 0 || prodDay > 31) {
     // here will be handle error message
-    console.log("wrong data for day of production");
   } else {
     dayData = prodDay;
     // here will be handle success message
-    console.log(" Day of production :" + prodDay);
   }
 
   displayDataToDom(yearData, monthData, dayData);
@@ -192,7 +187,6 @@ function checkDate(date) {
     new Date(yearData, monthDataDecimal),
     new Date()
   );
-  console.log(resultOfMonthsFromProd);
   OutPut.displayMonth.innerHTML = resultOfMonthsFromProd ;
 }
 
