@@ -88,12 +88,16 @@
 .p-0 {
   padding: 0 !important;
 }
-
+.has-text-orange {
+  color: rgb(235, 102, 8);
+}
 #output .list-item b {
   color: rgb(235, 102, 8);
   color: #48c774;
 }
-
+.year-list b {
+  color: #48c774;
+}
 /* is-loading */
 
 /* checkbox */
@@ -167,14 +171,13 @@ button.is-orange {
 }
 
 .btn-logo:hover .opacity0 {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .logoStyle {
-  color: rgb(235, 102, 8)!important;
+  color: rgb(235, 102, 8) !important;
 }
 
 .logoStyle:hover {
-  color: rgb(230, 192, 137)!important;
+  color: rgb(230, 192, 137) !important;
 }
-

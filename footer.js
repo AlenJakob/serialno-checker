@@ -1,4 +1,4 @@
-export const footer = `  <footer class="footer">
+export const footer = `<footer class="footer">
 <div class="content has-text-centered">
     <p>
         <strong>2021</strong> Created by <b class="has-text-info">Alen Jakob</b>

@@ -1,7 +1,9 @@
-import { checkFromProd } from "./helpers/countMonths";
-// import { logo } from "./logo";
+import { checkFromProd } from "./utils/countMonths";
+import { months } from "./utils/months";
+import { cleanClass } from "./utils/cleanClass";
 import { footer } from "./footer";
 const testNum = "018F7R33010269";
+// import { logo } from "./logo";
 // document.querySelector(".logoDom").innerHTML = logo;
 
 document.querySelector("#footer-in").innerHTML = footer;
@@ -18,10 +20,6 @@ const control = document.querySelector("#checkBtn");
 formTrigger.addEventListener("submit", (e) => {
   e.preventDefault();
 });
-
-let yearData = document.querySelector("#yearData");
-let monthData = document.querySelector("#monthData");
-let dayData = document.querySelector("#dayData");
 
 let OutPut = {
   displaySerialNum4: document.querySelector("#out4"),
@@ -63,21 +61,6 @@ let yearV = 2021;
 let yearW = 2022;
 let yearX = 2023;
 
-let months = {
-  1: "january",
-  2: "february",
-  3: "march",
-  4: "april",
-  5: "may",
-  6: "june",
-  7: "july",
-  8: "august",
-  9: "september",
-  a: "october",
-  b: "november",
-  c: "december",
-};
-
 // submit form to display data to Dom
 formTrigger.addEventListener("submit", () => {
   control.classList.add("is-loading");
@@ -88,16 +71,6 @@ formTrigger.addEventListener("submit", () => {
   }, 800);
   outNumVal.innerText = serialNumIn.value;
 });
-
-const cleanClass = (element) => (element.className = "");
-const setMessageAlert = (message) => {
-  // warning message
-  popup.classList.add("check-is-warranty", "message");
-  // correct message
-  popup.classList.add("is-on-warranty", "message");
-  // alert message
-  popup.classList.add("is-out-warranty", "message");
-};
 
 const checkInput = (serialNumber) => {
   const passMessage = [
@@ -174,20 +147,19 @@ function checkDate(date) {
   const prodDay = date[2] + date[3];
   if (prodDay <= 0 || prodDay > 31) {
     // here will be handle error message
+    console.log("the year cannot be less then 0 or higher than 31 for months");
   } else {
     dayData = prodDay;
     // here will be handle success message
+    console.log("the day is correct");
   }
 
   displayDataToDom(yearData, monthData, dayData);
-
-  const d = new Date();
-  const dateOfYearAndMonth = `${d.getFullYear()} ${d.getMonth()}`;
   const resultOfMonthsFromProd = checkFromProd(
     new Date(yearData, monthDataDecimal),
     new Date()
   );
-  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd ;
+  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;
 }
 
 // function using to display data into Dom
