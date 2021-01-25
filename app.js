@@ -1,9 +1,9 @@
 import { checkFromProd } from "./utils/countMonths";
 import { months } from "./utils/months";
 import { cleanClass } from "./utils/cleanClass";
-import { footer } from "./footer";
+import { footer } from "./utils/footer";
 const testNum = "018F7R33010269";
-// import { logo } from "./logo";
+// import { logo } from "./utils/logo";
 // document.querySelector(".logoDom").innerHTML = logo;
 
 document.querySelector("#footer-in").innerHTML = footer;
