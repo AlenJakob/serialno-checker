@@ -181,3 +181,6 @@ button.is-orange {
 .logoStyle:hover {
   color: rgb(230, 192, 137) !important;
 }
+.is-text-small{
+  font-size:.8rem;
+}
