@@ -16,6 +16,10 @@ const messageOfStatus = document.querySelector("#message");
       `;
     });
     console.log(JSON.parse(localStorage.getItem("Serial_List")));
+  } else {
+    listOfNum.innerHTML += `
+    empty
+    `;
   }
 })();
 // get data from input
@@ -35,11 +39,16 @@ function getSerialNum(ev) {
   let itemNum = serialNumIn.value;
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
 
-  if (dropHistory.includes(itemNum) && serialNum.length < 13) {
-    console.log("yes ");
+  if (dropHistory.includes(itemNum)) {
+    console.log("yes");
     messageOfStatus.innerHTML = `The number is already on the list`;
+    if (itemNum < 13) {
+      messageOfStatus.innerHTML = `The lentgth is not enought`;
+      return;
+    }
   } else if (!dropHistory.includes(itemNum)) {
     // when added
+    setTimeout(hideMessage, 1000);
     messageOfStatus.innerHTML = `You have added you serial number to list`;
     listOfNum.innerHTML = ``;
     console.log("the array doesnt include that num add them  ");
@@ -68,10 +77,9 @@ removeBtn.addEventListener("click", () => {
   listOfNum.innerHTML = ``;
   messageOfStatus.innerHTML = `List has been cleared`;
   setTimeout(hideMessage, 1000);
-  // messageOfStatus.innerHTML = `The list has been removed`;
 });
 
 function hideMessage() {
   messageOfStatus.innerHTML = ``;
-  messageOfStatus.classList.remove("is-danger")
+  messageOfStatus.classList.remove("is-danger");
 }
