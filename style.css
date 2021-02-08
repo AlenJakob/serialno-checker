@@ -1,5 +1,5 @@
 * {
-  transition: 0.3s;
+  transition: 0.2s;
   font-size: 1.1rem;
   font-family: sans-serif;
 }
@@ -181,6 +181,43 @@ button.is-orange {
 .logoStyle:hover {
   color: rgb(230, 192, 137) !important;
 }
-.is-text-small{
-  font-size:.8rem;
+.is-text-small {
+  font-size: 0.8rem;
+}
+i {
+  transition: 0.3s;
+}
+.arrow {
+  margin-left: 1rem;
+  display: flex;
+}
+.arrow::before {
+  content: " View list ";
+  margin-right: 5px;
+}
+.remove {
+  margin-left: 1rem;
+  display: flex;
+}
+.remove::before {
+  content: " Remove ";
+  margin-right: 5px;
+}
+.list-off {
+  display: none;
+}
+.show-on {
+  display: block !important;
+}
+
+.fa-arrow-circle-down {
+  display: none;
+}
+
+.button.is-dark i {
+  color: #fff !important;
+}
+.container_view {
+  max-width: 1200px;
+  margin: 0 auto;
 }

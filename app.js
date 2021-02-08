@@ -8,7 +8,7 @@ const testNum = "018F7R33010269";
 
 document.querySelector("#footer-in").innerHTML = footer;
 const popup = document.querySelector("#popup");
-const serialNumIn = document.querySelector("#serialNum");
+export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
 const formTrigger = document.querySelector(".form-trigger");
 const checkBtn = document.querySelector("#checkBtn");

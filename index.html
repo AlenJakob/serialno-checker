@@ -21,7 +21,7 @@
       <figure class="logoDom image is-one-quarter column"></figure>
     </div> -->
     <div class="columns">
-      <div class="column is-one-third">
+      <div class="column">
         <a class="btn-logo" href="https://bafang-e.com">
           <div class="title has-text-centered is-size-1 logoStyle">Bafang</div>
         </a>
@@ -29,22 +29,20 @@
       </div>
     </div>
 
-    <div class="columns is-justify-content-space-evenly content-mt-3">
+    <div
+      class="container_view columns is-justify-content-space-evenly content-mt-3"
+    >
       <div class="column list box m-0 is-6">
         <div class="message-header is-orange">
           <p>Check your mid motor</p>
         </div>
 
         <div class="column" for="serialNum"><b>Serial Number : </b></div>
-        <div>
+        <div class="column">
+          <label for="040f5TC200584">040f5TC200584</label>
           <form class="form-trigger control columns">
             <div class="field column">
-              <input
-                id="serialNum"
-                class="input"
-                type="text"
-                value="040f5TC200584"
-              />
+              <input id="serialNum" class="input" type="text" value="" />
             </div>
 
             <div class="field column">
@@ -57,6 +55,23 @@
               </button>
             </div>
           </form>
+
+          <div class="columns">
+            <div class="column field is-grouped">
+              <button id="addToList" class="button is-dark is-outlined">
+                <i class="fas fa-plus"></i></button
+              ><button class="arrow column button is-success is-2">
+                <div id="ico" class="fas fa-arrow-down"></div></button
+              ><button
+                id="remove"
+                class="remove column button is-danger is-outlined is-2"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <article id="message" class="message"></article>
+          <ul id="list" class="column list list-off"></ul>
         </div>
         <ul class="outNum" id="outNum">
           <div class="list-item">
@@ -212,5 +227,6 @@
 
     <div id="footer-in"></div>
     <script src="app.js"></script>
+    <script src="database.js"></script>
   </body>
 </html>
