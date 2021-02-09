@@ -83,3 +83,7 @@ function hideMessage() {
   messageOfStatus.innerHTML = ``;
   messageOfStatus.classList.remove("is-danger");
 }
+
+
+
+//  npm install xlsexport --save for exporting array to XLS file

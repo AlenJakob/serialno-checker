@@ -200,7 +200,7 @@ i {
   display: flex;
 }
 .remove::before {
-  content: " Remove ";
+  content: "Remove ";
   margin-right: 5px;
 }
 .list-off {
