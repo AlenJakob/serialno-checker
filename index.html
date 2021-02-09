@@ -58,16 +58,31 @@
 
           <div class="columns">
             <div class="column field is-grouped">
-              <button id="addToList" class="button is-dark is-outlined">
-                <i class="fas fa-plus"></i></button
-              ><button class="arrow column button is-success is-2">
+              <button class="arrow button is-success">
                 <div id="ico" class="fas fa-arrow-down"></div></button
-              ><button
-                id="remove"
-                class="remove column button is-danger is-outlined is-2"
-              >
-                <i class="fas fa-times"></i>
+              ><button id="remove" class="remove button is-danger is-outlined">
+                <i class="fas fa-times"></i></button
+              ><button id="addToList" class="button is-orange is-outlined">
+                <i class="fas fa-plus"></i>
               </button>
+            </div>
+          </div>
+          <div class="column field">
+            <div class="field has-addons">
+              <p class="control">
+                <input
+                  id="fileName"
+                  class="input"
+                  type="text"
+                  placeholder="file name"
+                  value="Mid Motor v1"
+                />
+              </p>
+              <p class="control">
+                <a id="exportBtn" class="button is-link is-outlined">
+                  Export XLS
+                </a>
+              </p>
             </div>
           </div>
           <article id="message" class="message"></article>

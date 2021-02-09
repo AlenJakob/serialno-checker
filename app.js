@@ -2,6 +2,8 @@ import { checkFromProd } from "./utils/countMonths";
 import { months } from "./utils/months";
 import { cleanClass } from "./utils/cleanClass";
 import { footer } from "./utils/footer";
+import XlsExport from "/xls-export.js";
+
 const testNum = "018F7R33010269";
 // import { logo } from "./utils/logo";
 // document.querySelector(".logoDom").innerHTML = logo;
@@ -12,6 +14,7 @@ export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
 const formTrigger = document.querySelector(".form-trigger");
 const checkBtn = document.querySelector("#checkBtn");
+const exportBtn = document.querySelector("#exportBtn");
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
 // is-loading and remove after 1 second.
@@ -192,4 +195,11 @@ checkInfo.addEventListener("change", (e) => {
   } else if (!checkbox.checked) {
     document.querySelector("#infobox").style.display = "none";
   }
+});
+
+exportBtn.addEventListener("click", () => {
+  const fileNameVal = document.querySelector("#fileName").value;
+  let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
+  var xls = new XlsExport([...dropHistory], "list");
+  xls.exportToXLS(fileNameVal);
 });

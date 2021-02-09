@@ -12,7 +12,7 @@ const messageOfStatus = document.querySelector("#message");
     // localStorage.setItem("Serial_List", JSON.stringify([]));
     JSON.parse(localStorage.getItem("Serial_List")).forEach((el) => {
       listOfNum.innerHTML += `
-      <li class="list-item">${el}</li>
+      <li class="list-item">${el.serialNumber}</li>
       `;
     });
     console.log(JSON.parse(localStorage.getItem("Serial_List")));
@@ -22,17 +22,6 @@ const messageOfStatus = document.querySelector("#message");
     `;
   }
 })();
-// get data from input
-
-// store in array
-
-// add data to localstorage
-
-// When adding new get back the array check if there is existing record
-
-// if record is not in array add item to array
-
-// Click event to handle
 
 function getSerialNum(ev) {
   ev.preventDefault();
@@ -47,18 +36,19 @@ function getSerialNum(ev) {
       return;
     }
   } else if (!dropHistory.includes(itemNum)) {
-    // when added
+    // Success ADDED
+    serialNumIn.value = ``;
     setTimeout(hideMessage, 1000);
     messageOfStatus.innerHTML = `You have added you serial number to list`;
     listOfNum.innerHTML = ``;
     console.log("the array doesnt include that num add them  ");
-    dropHistory.push(itemNum);
+    dropHistory.push({ serialNumber: itemNum });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el) => {
-      console.log("element from foreach after adding", el);
+      console.log("element from foreach after adding", el.serialNumber);
 
       listOfNum.innerHTML += `
-      <li class="list-item">${el}</li>
+      <li class="list-item">${el.serialNumber}</li>
       `;
     });
     console.log(dropHistory);
@@ -84,6 +74,16 @@ function hideMessage() {
   messageOfStatus.classList.remove("is-danger");
 }
 
+// get data from input
 
+// store in array
+
+// add data to localstorage
+
+// When adding new get back the array check if there is existing record
+
+// if record is not in array add item to array
+
+// Click event to handle
 
 //  npm install xlsexport --save for exporting array to XLS file

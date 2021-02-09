@@ -1,5 +1,5 @@
 * {
-  transition: 0.2s;
+  transition: 0.1s !important;
   font-size: 1.1rem;
   font-family: sans-serif;
 }
@@ -111,48 +111,38 @@
   font-weight: bold;
   max-height: 50px;
 }
-
 input[type="checkbox"] {
   margin: 1rem;
   cursor: pointer;
   transform: scale(1.5);
 }
-
 .message {
   padding: 1rem !important;
 }
-
 .is-on-warranty {
   color: #fff;
   background-color: #48c774;
 }
-
 .check-is-warranty {
   color: #fff;
   background-color: orange;
 }
-
 .is-out-warranty {
   color: #fff;
   background-color: red;
 }
-
 .infobox {
   display: none;
 }
-
 .buttons {
   margin-top: 1rem;
 }
-
 .message-header {
   background-color: #00d1b2;
 }
-
 .message-header {
   background-color: rgb(235, 102, 8);
 }
-
 button.is-orange {
   background-color: rgb(235, 102, 8);
   color: #fff;
@@ -165,27 +155,20 @@ button.is-orange {
 .content-mt-3 {
   margin-top: 3rem !important;
 }
-
 .info-mt-2 {
   margin-top: 2rem;
 }
-
 .btn-logo:hover .opacity0 {
   opacity: 0.7;
 }
-
 .logoStyle {
   color: rgb(235, 102, 8) !important;
 }
-
 .logoStyle:hover {
   color: rgb(230, 192, 137) !important;
 }
 .is-text-small {
   font-size: 0.8rem;
-}
-i {
-  transition: 0.3s;
 }
 .arrow {
   margin-left: 1rem;
@@ -213,7 +196,9 @@ i {
 .fa-arrow-circle-down {
   display: none;
 }
-
+.button {
+  margin-left: 5px;
+}
 .button.is-dark i {
   color: #fff !important;
 }
