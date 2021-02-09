@@ -23,36 +23,55 @@ const messageOfStatus = document.querySelector("#message");
   }
 })();
 
+// console.log(Object.entries(JSON.parse(localStorage.getItem("Serial_List"))));
+
 function getSerialNum(ev) {
   ev.preventDefault();
   let itemNum = serialNumIn.value;
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
+  console.log(checkTwoValues(dropHistory, itemNum));
 
-  if (dropHistory.includes(itemNum)) {
+  // if (dropHistory.includes(itemNum)) {
+  if (checkTwoValues(dropHistory, itemNum)) {
     console.log("yes");
     messageOfStatus.innerHTML = `The number is already on the list`;
-    if (itemNum < 13) {
-      messageOfStatus.innerHTML = `The lentgth is not enought`;
+    if (itemNum.length < 13) {
+      messageOfStatus.innerHTML = `The length is not enought`;
       return;
     }
-  } else if (!dropHistory.includes(itemNum)) {
+  } else if (!checkTwoValues(dropHistory, itemNum)) {
     // Success ADDED
     serialNumIn.value = ``;
     setTimeout(hideMessage, 1000);
     messageOfStatus.innerHTML = `You have added you serial number to list`;
     listOfNum.innerHTML = ``;
-    console.log("the array doesnt include that num add them  ");
     dropHistory.push({ serialNumber: itemNum });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el) => {
-      console.log("element from foreach after adding", el.serialNumber);
+      // console.log("element from foreach after adding", el.serialNumber);
 
       listOfNum.innerHTML += `
       <li class="list-item">${el.serialNumber}</li>
       `;
     });
-    console.log(dropHistory);
+    // console.log(dropHistory);
   }
+}
+
+function checkTwoValues(listOfNumbers, givenNumber) {
+  let arrList = [];
+  let containNumber;
+  listOfNumbers.map((el) => {
+    arrList.push(Object.values(el)[0]);
+  });
+
+  if (arrList.includes(givenNumber)) {
+    return true;
+  } else {
+    return false;
+  }
+
+  // console.log(givenNumber);
 }
 
 addToList.addEventListener("click", getSerialNum);
