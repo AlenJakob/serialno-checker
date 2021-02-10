@@ -32,7 +32,7 @@ function getSerialNum(ev) {
     console.log("yes");
     messageOfStatus.innerHTML = `The number is already on the list`;
     if (itemNum.length < 13) {
-      messageOfStatus.innerHTML = `The length is not enought`;
+      messageOfStatus.innerHTML = `The length is not enough`;
       return;
     }
   } else if (!checkTwoValues(dropHistory, itemNum)) {
@@ -47,7 +47,7 @@ function getSerialNum(ev) {
       // console.log("element from foreach after adding", el.serialNumber);
 
       listOfNum.innerHTML += `
-      <li class="list-item"> ${i}. ${el.serialNumber}</li>
+      <li class="list-item"><b> ${i}.</b> ${el.serialNumber}</li>
       `;
     });
   }
@@ -59,6 +59,9 @@ function checkTwoValues(listOfNumbers, givenNumber) {
   });
 
   if (arrList.includes(givenNumber)) {
+    return true;
+  }
+  if (givenNumber.length === 0) {
     return true;
   } else {
     return false;

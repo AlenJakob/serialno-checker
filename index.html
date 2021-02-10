@@ -13,6 +13,7 @@
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -38,76 +39,95 @@
           <p>Check your mid motor</p>
         </div>
 
-        <div class="column" for="serialNum"><b>Serial Number : </b></div>
+        <div class="column"><b>Serial Number : </b></div>
         <div class="column">
-          <label for="040f5TC200584">040f5TC200584</label>
+          <label>040f5TC200584</label>
           <form class="form-trigger control columns">
-            
             <div class="field column has-addons">
-              <input id="serialNum" class="input" type="text" value="" /> 
-             
-                <button
-                  type="submit"
-                  id="checkBtn"
-                  class="check button has-text-white is-orange"
-                >
+              <input id="serialNum" class="input" type="text" value="" />
+              <button
+                type="submit"
+                id="checkBtn"
+                class="check button has-text-white is-orange"
+              >
                 <i class="check fa fa-search" aria-hidden="true"></i>
-                </button>
-              
+              </button>
             </div>
-
-           
           </form>
 
           <div class="columns">
-            <div class="column field is-grouped">
-              <button id="remove" class="remove button is-danger is-outlined">
+            <div class="field is-grouped">
+              <button id="remove" class="remove button is-danger">
                 <i class="fas fa-times"></i></button
-              ><button id="addToList" class="add button is-orange is-outlined">
-               
+              ><button id="addToList" class="add button is-success">
                 <i class="ml-2 fas fa-plus"></i>
               </button>
             </div>
           </div>
-          <div class="column field">
-            <div class="field has-addons">
+
+          <div class="field has-addons">
             <div>
-              <p class="control">
+              <div class="control">
                 <input
                   id="fileName"
                   class="input"
                   type="text"
                   placeholder="file name"
                   value="Mid Motor v1"
-                /> <p class="help ">File name</p>
-              </p>
+                />
+                <p class="help">File name</p>
+              </div>
             </div>
-              <p class="control">
-                <a id="exportBtn" class="button is-link"> Export XLS </a>
-              </p>
-              <p class="control">
-                <a id="importBtn" class="button is-dark"> Import XLS </a>
-              </p>
+            <p class="control">
+              <a id="exportBtn" class="button is-link"> Export XLS </a>
+            </p>
+          </div>
+
+          <div class="box">
+          <p class="title is-4 is-spaced">Upload File</p>
+          <div class="columns">
+            <div id="file-js-example" class="column file is-small has-name">
+              <label class="file-label">
+                <input
+                  id="input"
+                  accept=".xls,.xlsx"
+                  class="file-input"
+                  type="file"
+                  name="resume"
+                />
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label"> Choose a file… </span>
+                </span>
+
+                <span id="jsondata" class="file-name"> No file uploaded </span>
+                <button id="importBtn" class="file-name button is-link">
+                  Import XLS
+                </button>
+              </label>
             </div>
           </div>
-          <article id="message" class="message">
-            <button class="arrow button is-success">
-              <div id="ico" class="fas fa-arrow-down"></div>
-            </button>
-          </article>
+</div>
+          <!-- IMPORT  -->
 
+          <div id="message" class="box"></div>
 
-          <ul type="1" id="list" class="column content list list-off"></ul>
+          <button class="box arrow button is-dark">
+            <div id="ico" class="fas fa-arrow-down"></div>
+          </button>
 
+          <ul id="list" class="column content list list-off"></ul>
         </div>
         <ul class="outNum" id="outNum">
-          <div class="list-item">
+          <li class="list-item">
             Your Serial Number :
             <b id="outNumVal">Test output</b>
-          </div>
-          <div class="outNum list-item">
+          </li>
+          <li class="outNum list-item">
             Total period of warranty : <b class="has-text-dark">30 Months</b>
-          </div>
+          </li>
         </ul>
 
         <ul id="output" class="list is-hoverable">
@@ -177,11 +197,11 @@
             <li class="list-item">Day: <b id="outDay"></b></li>
           </ul>
         </div>
-        <ul>
+        <!-- <ul>
           <li id="outYear"></li>
           <li id="monthData"></li>
           <li id="dayData"></li>
-        </ul>
+        </ul> -->
         <div class="list field checkbox-close-info">
           <input
             id="checkInfo"
@@ -254,5 +274,19 @@
     <div id="footer-in"></div>
     <script src="app.js"></script>
     <script src="database.js"></script>
+    <script src="/utils/import.js"></script>
+    <script>
+      const fileInput = document.querySelector(
+        "#file-js-example input[type=file]"
+      );
+      fileInput.onchange = () => {
+        if (fileInput.files.length > 0) {
+          const fileName = document.querySelector(
+            "#file-js-example .file-name"
+          );
+          fileName.textContent = fileInput.files[0].name;
+        }
+      };
+    </script>
   </body>
 </html>

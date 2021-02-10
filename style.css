@@ -210,3 +210,10 @@ button.is-orange {
 .list-item {
   list-style: decimal-leading-zero !important;
 }
+.button.is-danger {
+  background-color: #c90c0c;
+}
+.button.is-danger.is-hovered,
+.button.is-danger:hover {
+  background-color: #b40909;
+}
