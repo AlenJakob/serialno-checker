@@ -56,7 +56,6 @@ function getSerialNum(ev) {
     });
   }
 }
-
 function checkTwoValues(listOfNumbers, givenNumber) {
   let arrList = [];
   let containNumber;
