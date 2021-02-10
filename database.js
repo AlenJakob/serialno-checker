@@ -54,7 +54,6 @@ function getSerialNum(ev) {
       <li class="list-item">${el.serialNumber}</li>
       `;
     });
-    // console.log(dropHistory);
   }
 }
 
