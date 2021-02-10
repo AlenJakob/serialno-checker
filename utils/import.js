@@ -40,8 +40,14 @@ document.getElementById("importBtn").addEventListener("click", () => {
         //   undefined,
         //   4
         // );
+        localStorage.setItem("Serial_List", JSON.stringify(rowObject));
+        const list = JSON.parse(localStorage.getItem("Serial_List"));
 
-        rowObject.forEach((el, i) => {
+        // for (let item of list) {
+        //   console.log(item);
+        // }
+
+        list.forEach((el, i) => {
           console.log(el);
           document.getElementById("list").innerHTML += `
             <li class="list-item"><b>${i} . </b> ${Object.values(el)}</li>
