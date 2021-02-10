@@ -17,6 +17,7 @@
   </head>
 
   <body class="box">
+    <!-- Logotypeof Bafang -->
     <!-- <div class="columns is-centered">
       <figure class="logoDom image is-one-quarter column"></figure>
     </div> -->
@@ -41,34 +42,36 @@
         <div class="column">
           <label for="040f5TC200584">040f5TC200584</label>
           <form class="form-trigger control columns">
-            <div class="field column">
-              <input id="serialNum" class="input" type="text" value="" />
+            
+            <div class="field column has-addons">
+              <input id="serialNum" class="input" type="text" value="" /> 
+             
+                <button
+                  type="submit"
+                  id="checkBtn"
+                  class="check button has-text-white is-orange"
+                >
+                <i class="check fa fa-search" aria-hidden="true"></i>
+                </button>
+              
             </div>
 
-            <div class="field column">
-              <button
-                type="submit"
-                id="checkBtn"
-                class="button has-text-white is-orange"
-              >
-                Check
-              </button>
-            </div>
+           
           </form>
 
           <div class="columns">
             <div class="column field is-grouped">
-              <button class="arrow button is-success">
-                <div id="ico" class="fas fa-arrow-down"></div></button
-              ><button id="remove" class="remove button is-danger is-outlined">
+              <button id="remove" class="remove button is-danger is-outlined">
                 <i class="fas fa-times"></i></button
-              ><button id="addToList" class="button is-orange is-outlined">
-                <i class="fas fa-plus"></i>
+              ><button id="addToList" class="add button is-orange is-outlined">
+               
+                <i class="ml-2 fas fa-plus"></i>
               </button>
             </div>
           </div>
           <div class="column field">
             <div class="field has-addons">
+            <div>
               <p class="control">
                 <input
                   id="fileName"
@@ -76,17 +79,26 @@
                   type="text"
                   placeholder="file name"
                   value="Mid Motor v1"
-                />
+                /> <p class="help ">File name</p>
+              </p>
+            </div>
+              <p class="control">
+                <a id="exportBtn" class="button is-link"> Export XLS </a>
               </p>
               <p class="control">
-                <a id="exportBtn" class="button is-link is-outlined">
-                  Export XLS
-                </a>
+                <a id="importBtn" class="button is-dark"> Import XLS </a>
               </p>
             </div>
           </div>
-          <article id="message" class="message"></article>
-          <ul id="list" class="column list list-off"></ul>
+          <article id="message" class="message">
+            <button class="arrow button is-success">
+              <div id="ico" class="fas fa-arrow-down"></div>
+            </button>
+          </article>
+
+
+          <ul type="1" id="list" class="column content list list-off"></ul>
+
         </div>
         <ul class="outNum" id="outNum">
           <div class="list-item">
@@ -180,65 +192,64 @@
           />
           <label class="has-text-dark">( show / hide ) information</label>
         </div>
+        <div id="infobox" class="list infobox column is-12">
+          <ul class="list is-hoverable">
+            <li class="list-item">
+              <b>4. </b>Position - signature of controller & lentgth of cable
+              <b>3 characters</b>
+            </li>
+
+            <li class="list-item">
+              <b>5. </b> Position - place of production F = Bafang Suzhou || P =
+              Bafang Poland <b>2 characters </b>
+            </li>
+            <li class="list-item">
+              <b>6. </b>Position - Data of production <b>( 4 characters )</b>
+            </li>
+          </ul>
+
+          <div class="message-body p-0">
+            <div class="message-header">
+              <p>Year</p>
+            </div>
+          </div>
+
+          <ul class="list is-hoverable">
+            <li class="list-item"><b>R</b> - 2017</li>
+            <li class="list-item"><b>S</b> - 2018</li>
+            <li class="list-item"><b>T</b> - 2019</li>
+            <li class="list-item"><b>U</b> - 2020</li>
+            <li class="list-item"><b>V</b> - 2021</li>
+            <li class="list-item"><b>W</b> - 2022</li>
+            <li class="list-item"><b>X</b> - 2023</li>
+          </ul>
+
+          <div class="message-body p-0">
+            <div class="message-header">
+              <p>Month</p>
+            </div>
+          </div>
+
+          <ul class="list is-hoverable">
+            <li class="list-item">1 - 9 ( january - september )</li>
+            <li class="list-item">A - C ( october - december )</li>
+          </ul>
+
+          <div class="message-body p-0">
+            <div class="message-header">
+              <p>Day</p>
+            </div>
+          </div>
+
+          <ul class="list is-hoverable">
+            <li class="list-item">01-31 days</li>
+            <li class="list-item"><b>7.</b> engine sequence number</li>
+            <li class="list-item">Last 4 characters</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="columns is-centered info-mt-2">
-      <div id="infobox" class="list infobox column is-10 box">
-        <ul class="list is-hoverable">
-          <li class="list-item">
-            <b>4. </b>Position - signature of controller & lentgth of cable
-            <b>3 characters</b>
-          </li>
-
-          <li class="list-item">
-            <b>5. </b> Position - place of production F = Bafang Suzhou || P =
-            Bafang Poland <b>2 characters </b>
-          </li>
-          <li class="list-item">
-            <b>6. </b>Position - Data of production <b>( 4 characters )</b>
-          </li>
-        </ul>
-
-        <div class="message-body p-0">
-          <div class="message-header">
-            <p>Year</p>
-          </div>
-        </div>
-
-        <ul class="list is-hoverable">
-          <li class="list-item"><b>R</b> - 2017</li>
-          <li class="list-item"><b>S</b> - 2018</li>
-          <li class="list-item"><b>T</b> - 2019</li>
-          <li class="list-item"><b>U</b> - 2020</li>
-          <li class="list-item"><b>V</b> - 2021</li>
-          <li class="list-item"><b>W</b> - 2022</li>
-          <li class="list-item"><b>X</b> - 2023</li>
-        </ul>
-
-        <div class="message-body p-0">
-          <div class="message-header">
-            <p>Month</p>
-          </div>
-        </div>
-
-        <ul class="list is-hoverable">
-          <li class="list-item">1 - 9 ( january - september )</li>
-          <li class="list-item">A - C ( october - december )</li>
-        </ul>
-
-        <div class="message-body p-0">
-          <div class="message-header">
-            <p>Day</p>
-          </div>
-        </div>
-
-        <ul class="list is-hoverable">
-          <li class="list-item">01-31 days</li>
-          <li class="list-item"><b>7.</b> engine sequence number</li>
-          <li class="list-item">Last 4 characters</li>
-        </ul>
-      </div>
-    </div>
+    <div class="columns is-centered info-mt-2"></div>
 
     <div id="footer-in"></div>
     <script src="app.js"></script>

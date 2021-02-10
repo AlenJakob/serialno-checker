@@ -178,6 +178,14 @@ button.is-orange {
   content: "Remove ";
   margin-right: 5px;
 }
+.add::before {
+  content: "Add ";
+  margin-right: 5px;
+}
+.check::before {
+  content: "Check ";
+  margin-right: 5px;
+}
 .list-off {
   display: none;
 }
@@ -197,4 +205,8 @@ button.is-orange {
 .container_view {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.list-item {
+  list-style: decimal-leading-zero !important;
 }

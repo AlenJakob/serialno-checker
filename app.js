@@ -15,6 +15,7 @@ const outNumVal = document.querySelector("#outNumVal");
 const formTrigger = document.querySelector(".form-trigger");
 const checkBtn = document.querySelector("#checkBtn");
 const exportBtn = document.querySelector("#exportBtn");
+const importBtn = document.querySelector("#importBtn");
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
 // is-loading and remove after 1 second.

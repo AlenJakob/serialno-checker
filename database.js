@@ -4,15 +4,14 @@ const addToList = document.querySelector("#addToList");
 
 const listOfNum = document.querySelector("#list");
 const showListBtn = document.querySelector(".arrow");
-const ico = document.querySelector("#ico");
 const removeBtn = document.querySelector("#remove");
 const messageOfStatus = document.querySelector("#message");
 (function () {
   if (localStorage.getItem("Serial_List")) {
     // localStorage.setItem("Serial_List", JSON.stringify([]));
-    JSON.parse(localStorage.getItem("Serial_List")).forEach((el) => {
+    JSON.parse(localStorage.getItem("Serial_List")).forEach((el, i) => {
       listOfNum.innerHTML += `
-      <li class="list-item">${el.serialNumber}</li>
+      <li class="list-item"><b>${i}. </b> ${el.serialNumber}</li>
       `;
     });
     console.log(JSON.parse(localStorage.getItem("Serial_List")));
@@ -23,15 +22,12 @@ const messageOfStatus = document.querySelector("#message");
   }
 })();
 
-// console.log(Object.entries(JSON.parse(localStorage.getItem("Serial_List"))));
-
 function getSerialNum(ev) {
   ev.preventDefault();
   let itemNum = serialNumIn.value;
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
   console.log(checkTwoValues(dropHistory, itemNum));
 
-  // if (dropHistory.includes(itemNum)) {
   if (checkTwoValues(dropHistory, itemNum)) {
     console.log("yes");
     messageOfStatus.innerHTML = `The number is already on the list`;
@@ -47,18 +43,17 @@ function getSerialNum(ev) {
     listOfNum.innerHTML = ``;
     dropHistory.push({ serialNumber: itemNum });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
-    dropHistory.forEach((el) => {
+    dropHistory.forEach((el, i) => {
       // console.log("element from foreach after adding", el.serialNumber);
 
       listOfNum.innerHTML += `
-      <li class="list-item">${el.serialNumber}</li>
+      <li class="list-item"> ${i}. ${el.serialNumber}</li>
       `;
     });
   }
 }
 function checkTwoValues(listOfNumbers, givenNumber) {
   let arrList = [];
-  let containNumber;
   listOfNumbers.map((el) => {
     arrList.push(Object.values(el)[0]);
   });
