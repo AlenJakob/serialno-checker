@@ -32,7 +32,7 @@ function getSerialNum(ev) {
     console.log("yes");
     hideMessage("is-warning", "The number is already on the list");
     if (itemNum.length < 13) {
-      hideMessage("is-danger", "The length is not enough");
+      hideMessage("is-danger", "The field cannot be empty");
       return;
     }
   } else if (!checkTwoValues(dropHistory, itemNum)) {
@@ -77,7 +77,7 @@ showListBtn.addEventListener("click", () => {
 removeBtn.addEventListener("click", () => {
   localStorage.clear();
   listOfNum.innerHTML = ``;
-  hideMessage("is-link", "List has been cleared");
+  hideMessage("is-warning", "List has been cleared");
 });
 
 function hideMessage(classStatus, msg) {
