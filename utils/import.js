@@ -54,7 +54,7 @@ document.getElementById("importBtn").addEventListener("click", () => {
         document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
           document.getElementById("list").innerHTML += `
-            <li class="list-item"><b>${i - 1} . </b> ${Object.values(el)}</li>
+            <li class="list-item"><b>${i} . </b> ${Object.values(el)}</li>
             `;
         });
       });

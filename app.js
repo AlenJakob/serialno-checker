@@ -2,7 +2,6 @@ import { checkFromProd } from "./utils/countMonths";
 import { months } from "./utils/months";
 import { cleanClass } from "./utils/cleanClass";
 import { footer } from "./utils/footer";
-import XlsExport from "/xls-export.js";
 
 const testNum = "018F7R33010269";
 // import { logo } from "./utils/logo";
@@ -14,7 +13,6 @@ export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
 const formTrigger = document.querySelector(".form-trigger");
 const checkBtn = document.querySelector("#checkBtn");
-const exportBtn = document.querySelector("#exportBtn");
 const importBtn = document.querySelector("#importBtn");
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
@@ -198,9 +196,9 @@ checkInfo.addEventListener("change", (e) => {
   }
 });
 
-exportBtn.addEventListener("click", () => {
-  const fileNameVal = document.querySelector("#fileName").value;
-  let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
-  var xls = new XlsExport([...dropHistory], "list");
-  xls.exportToXLS(fileNameVal);
-});
+// exportBtn.addEventListener("click", () => {
+//   const fileNameVal = document.querySelector("#fileName").value;
+//   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
+//   var xls = new XlsExport([...dropHistory], "list");
+//   xls.exportToXLS(fileNameVal);
+// });
