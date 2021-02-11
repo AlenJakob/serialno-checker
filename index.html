@@ -41,26 +41,28 @@
 
         <div class="column"><b>Serial Number : </b></div>
         <div class="column">
-          <label>040f5TC200584</label>
+          <p>040f5TC200584</p>
           <form class="form-trigger control columns">
             <div class="field column has-addons">
               <input id="serialNum" class="input" type="text" value="" />
-              <button
+
+              <button id="addToList" class="add button is-success">
+                <i class="ml-2 fas fa-plus"></i>
+              </button>
+            </div>
+          </form>
+
+          <div id="message" class=" is-medium"></div>
+          <div class="column">
+            <div class="field is-grouped">
+              <button id="remove" class="remove button is-danger">
+                <i class="fas fa-times"></i></button
+              ><button
                 type="submit"
                 id="checkBtn"
                 class="check button has-text-white is-orange"
               >
                 <i class="check fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </form>
-
-          <div class="columns">
-            <div class="field is-grouped">
-              <button id="remove" class="remove button is-danger">
-                <i class="fas fa-times"></i></button
-              ><button id="addToList" class="add button is-success">
-                <i class="ml-2 fas fa-plus"></i>
               </button>
             </div>
           </div>
@@ -114,49 +116,13 @@
           </div>
           <!-- IMPORT  -->
 
-          <div id="message" class="box"></div>
-
           <button class="box arrow button is-dark">
             <div id="ico" class="fas fa-arrow-down"></div>
           </button>
 
-          <ul id="list" class="column content list list-off"></ul>
+          <ul id="list" class="list-scroll column content list show-off"></ul>
         </div>
-        <ul class="outNum" id="outNum">
-          <li class="list-item">
-            Your Serial Number :
-            <b id="outNumVal">Test output</b>
-          </li>
-          <li class="outNum list-item">
-            Total period of warranty : <b class="has-text-dark">30 Months</b>
-          </li>
-        </ul>
-
-        <ul id="output" class="list is-hoverable">
-          <li class="list-item">
-            The total months from produciton date is: <b id="out8"></b>
-          </li>
-          <li class="list-item">
-            (<span class="has-text-orange is-size-6 has-text-weight-semibold"
-              >1</span
-            >) Controller Signature & length of Cable: <b id="out4"></b>
-          </li>
-          <li class="list-item">
-            (<span class="has-text-orange is-size-6 has-text-weight-semibold"
-              >2</span
-            >) Production place : <b id="out5"></b>
-          </li>
-          <li class="list-item">
-            (<span class="has-text-orange is-size-6 has-text-weight-semibold"
-              >3</span
-            >) Date of production : <b id="out6"></b>
-          </li>
-          <li class="list-item">
-            (<span class="has-text-orange is-size-6 has-text-weight-semibold"
-              >4</span
-            >) Signature number motor : <b id="out7"></b>
-          </li>
-        </ul>
+        
       </div>
       <div class="column list box is-5">
         <div>
@@ -204,16 +170,57 @@
           <li id="monthData"></li>
           <li id="dayData"></li>
         </ul> -->
-        <div class="list field checkbox-close-info">
-          <input
-            id="checkInfo"
-            class="is-checkradio is-block"
-            id="exampleCheckboxBlockDefault"
-            type="checkbox"
-            name="exampleCheckboxBlockDefault"
-          />
-          <label class="has-text-dark">( show / hide ) information</label>
-        </div>
+      
+
+<div>
+  <ul class="outNum" id="outNum">
+    <li class="list-item">
+      Your Serial Number :
+      <b id="outNumVal">Test output</b>
+    </li>
+    <li class="outNum list-item">
+      Total period of warranty : <b class="has-text-dark">30 Months</b>
+    </li>
+  </ul>
+
+  <ul id="output" class="list is-hoverable">
+    <li class="list-item">
+      The total months from produciton date is: <b id="out8"></b>
+    </li>
+    <li class="list-item">
+      (<span class="has-text-orange is-size-6 has-text-weight-semibold"
+        >1</span
+      >) Controller Signature & length of Cable: <b id="out4"></b>
+    </li>
+    <li class="list-item">
+      (<span class="has-text-orange is-size-6 has-text-weight-semibold"
+        >2</span
+      >) Production place : <b id="out5"></b>
+    </li>
+    <li class="list-item">
+      (<span class="has-text-orange is-size-6 has-text-weight-semibold"
+        >3</span
+      >) Date of production : <b id="out6"></b>
+    </li>
+    <li class="list-item">
+      (<span class="has-text-orange is-size-6 has-text-weight-semibold"
+        >4</span
+      >) Signature number motor : <b id="out7"></b>
+    </li>
+  </ul>
+</div>
+
+<div class="list field checkbox-close-info">
+  <input
+    id="checkInfo"
+    class="is-checkradio is-block"
+    id="exampleCheckboxBlockDefault"
+    type="checkbox"
+    name="exampleCheckboxBlockDefault"
+  />
+  <label class="has-text-dark">( show / hide ) information</label>
+</div>
+
         <div id="infobox" class="list infobox column is-12">
           <ul class="list is-hoverable">
             <li class="list-item">

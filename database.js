@@ -27,25 +27,22 @@ function getSerialNum(ev) {
   let itemNum = serialNumIn.value;
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
   console.log(checkTwoValues(dropHistory, itemNum));
-
+  // test if the num is on the list
   if (checkTwoValues(dropHistory, itemNum)) {
     console.log("yes");
-    messageOfStatus.innerHTML = `The number is already on the list`;
+    hideMessage("is-warning", "The number is already on the list");
     if (itemNum.length < 13) {
-      messageOfStatus.innerHTML = `The length is not enough`;
+      hideMessage("is-danger", "The length is not enough");
       return;
     }
   } else if (!checkTwoValues(dropHistory, itemNum)) {
     // Success ADDED
     serialNumIn.value = ``;
-    setTimeout(hideMessage, 1000);
-    messageOfStatus.innerHTML = `You have added you serial number to list`;
+    hideMessage("is-success", "You have added you serial number to list");
     listOfNum.innerHTML = ``;
     dropHistory.push({ serialNumber: itemNum });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
-      // console.log("element from foreach after adding", el.serialNumber);
-
       listOfNum.innerHTML += `
       <li class="list-item"><b> ${i}.</b> ${el.serialNumber}</li>
       `;
@@ -73,20 +70,24 @@ function checkTwoValues(listOfNumbers, givenNumber) {
 addToList.addEventListener("click", getSerialNum);
 
 showListBtn.addEventListener("click", () => {
-  listOfNum.classList.toggle("list-off");
+  listOfNum.classList.toggle("show-off");
   showListBtn.classList.toggle("is-orange");
 });
 
 removeBtn.addEventListener("click", () => {
   localStorage.clear();
   listOfNum.innerHTML = ``;
-  messageOfStatus.innerHTML = `List has been cleared`;
-  setTimeout(hideMessage, 1000);
+  hideMessage("is-link", "List has been cleared");
 });
 
-function hideMessage() {
-  messageOfStatus.innerHTML = ``;
-  messageOfStatus.classList.remove("is-danger");
+function hideMessage(classStatus, msg) {
+  messageOfStatus.innerHTML = msg;
+  messageOfStatus.classList.remove("show-off");
+  messageOfStatus.classList.add(classStatus, "tag");
+  setTimeout(function () {
+    messageOfStatus.classList.add("show-off");
+    messageOfStatus.classList.remove(classStatus, "tag");
+  }, 1500);
 }
 
 // get data from input

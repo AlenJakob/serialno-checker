@@ -13,7 +13,12 @@ let data = [
 ];
 
 document.getElementById("importBtn").addEventListener("click", () => {
-  document.querySelector("#list").classList.toggle("list-off");
+  const domList = document.querySelector("#list");
+  //   domList.classList.contains("list-off")
+  //     ? domList.classList.remove("list-off")
+  //     : domList.classList
+  //         .add("list-off");
+
   XLSX.utils.json_to_sheet(data, "out.xlsx");
   if (selectedFile) {
     let fileReader = new FileReader();
@@ -46,11 +51,10 @@ document.getElementById("importBtn").addEventListener("click", () => {
         // for (let item of list) {
         //   console.log(item);
         // }
-
+        document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
-          console.log(el);
           document.getElementById("list").innerHTML += `
-            <li class="list-item"><b>${i} . </b> ${Object.values(el)}</li>
+            <li class="list-item"><b>${i - 1} . </b> ${Object.values(el)}</li>
             `;
         });
       });
