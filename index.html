@@ -18,6 +18,7 @@
   </head>
 
   <body class="box">
+    <div id="basImg" class="bas-img"></div>
     <!-- Logotypeof Bafang -->
     <!-- <div class="columns is-centered">
       <figure class="logoDom image is-one-quarter column"></figure>
@@ -45,7 +46,6 @@
           <form class="form-trigger control columns">
             <div class="field column has-addons">
               <input id="serialNum" class="input" type="text" value="" />
-
               <button id="addToList" class="add button is-success">
                 <i class="ml-2 fas fa-plus"></i></button
               ><button
@@ -59,9 +59,15 @@
           </form>
 
           <div id="message" class="is-medium"></div>
-          <div class="box">
+          <div class="box buttons">
             <button id="remove" class="remove button is-warning">
               <i class="fas fa-trash-alt"></i>
+            </button>
+            <button id="bas" class="button is-dark  show-off">
+              <span>Bas Detector</span>
+              <span class="icon">
+                <i class="far fa-thumbs-up"></i>
+              </span>
             </button>
           </div>
 
@@ -78,10 +84,9 @@
                 <p class="help">File name</p>
               </div>
             </div>
-
             <button id="exportBtn" class="button is-link">
               <span class="icon">
-                <i class="fas fa-arrow-down"></i>
+                <i class="fas fa-download"></i>
               </span>
               <span> Export XLS</span>
             </button>
@@ -90,7 +95,10 @@
           <div class="box">
             <p class="title is-4 is-spaced">Upload File</p>
             <div class="columns">
-              <div id="file-js-example" class="column file is-small has-name">
+              <div
+                id="file-js-example"
+                class="column file is-small has-name is-info"
+              >
                 <label class="file-label">
                   <input
                     id="input"
@@ -111,11 +119,11 @@
                   </span>
                 </label>
                 <div class="field box">
-                  <button id="importBtn" class="button is-success">
-                    <span class="icon">
-                      <i class="fas fa-arrow-up"></i>
+                  <button id="importBtn" class="button is-orange">
+                    <span>Proceed</span
+                    ><span class="icon">
+                      <i class="fas fa-arrow-right"></i>
                     </span>
-                    <span> Import XLS</span>
                   </button>
                 </div>
               </div>
@@ -290,6 +298,7 @@
     <script src="database.js"></script>
     <script src="/utils/import.js"></script>
     <script src="/utils/export.js"></script>
+    <script src="/utils/bas.js"></script>
     <script>
       const fileInput = document.querySelector(
         "#file-js-example input[type=file]"

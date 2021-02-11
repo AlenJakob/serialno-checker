@@ -242,3 +242,15 @@ button.is-orange {
 ::-webkit-scrollbar {
   cursor: pointer;
 }
+
+.bas-img {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  z-index: 10;
+  left: 150px;
+  top: 150px;
+  width: 200px;
+  height: 220px;
+  background: url("/bas.jpg") center;
+}
