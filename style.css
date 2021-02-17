@@ -254,3 +254,18 @@ button.is-orange {
   height: 220px;
   background: url("/bas.jpg") center;
 }
+.mb-2 {
+  margin-bottom: 20px;
+}
+.mt-2 {
+  margin-top: 20px;
+}
+.is-divider,
+.is-divider-vertical {
+  display: block;
+  position: relative;
+  border-top: 0.1rem solid #dbdbdb;
+  height: 0.1rem;
+  margin: 2rem 0;
+  text-align: center;
+}

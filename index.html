@@ -42,10 +42,24 @@
 
         <div class="column"><b>Serial Number : </b></div>
         <div class="column">
-          <p>040f5TC200584</p>
+          <div class="columns">
+            <div class="column">
+              <p>040f5TC200584</p>
+            </div>
+            <div class="column">
+              <p>Character length - ( <b id="characters">13</b> ) char.</p>
+            </div>
+          </div>
+          <div class="is-divider"></div>
           <form class="form-trigger control columns">
             <div class="field column has-addons">
-              <input id="serialNum" class="input" type="text" value="" />
+              <input
+                id="serialNum"
+                class="input"
+                type="text"
+                value=""
+                autocomplete="off"
+              />
               <button id="addToList" class="add button is-success">
                 <i class="ml-2 fas fa-plus"></i></button
               ><button
@@ -58,12 +72,9 @@
             </div>
           </form>
 
-          <div id="message" class="is-medium"></div>
-          <div class="box buttons">
-            <button id="remove" class="remove button is-warning">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-            <button id="bas" class="button is-dark  show-off">
+          <div id="message" class="is-medium mb-2"></div>
+          <div class="box buttons show-off">
+            <button id="bas" class="button is-dark show-off">
               <span>Bas Detector</span>
               <span class="icon">
                 <i class="far fa-thumbs-up"></i>
@@ -72,17 +83,15 @@
           </div>
 
           <div class="field has-addons">
-            <div>
-              <div class="control">
-                <input
-                  id="fileName"
-                  class="input"
-                  type="text"
-                  placeholder="file name"
-                  value="Mid Motor v1"
-                />
-                <p class="help">File name</p>
-              </div>
+            <div class="control">
+              <input
+                id="fileName"
+                class="input is-link"
+                type="text"
+                placeholder="file name"
+                value="Mid Motor v1"
+              />
+              <p class="help">File name</p>
             </div>
             <button id="exportBtn" class="button is-link">
               <span class="icon">
@@ -92,7 +101,8 @@
             </button>
           </div>
 
-          <div class="box">
+          <div class="">
+            <div class="is-divider"></div>
             <p class="title is-4 is-spaced">Upload File</p>
             <div class="columns">
               <div
@@ -118,8 +128,11 @@
                     No file uploaded
                   </span>
                 </label>
-                <div class="field box">
-                  <button id="importBtn" class="button is-orange">
+                <div class="field mt-2">
+                  <button
+                    id="importBtn"
+                    class="button is-orange has-text-white"
+                  >
                     <span>Proceed</span
                     ><span class="icon">
                       <i class="fas fa-arrow-right"></i>
@@ -128,12 +141,18 @@
                 </div>
               </div>
             </div>
+            <div class="is-divider"></div>
           </div>
           <!-- IMPORT  -->
 
-          <button class="box arrow button is-dark">
-            <div id="ico" class="fas fa-arrow-down"></div>
-          </button>
+          <div class="buttons">
+            <button class="arrow button is-dark">
+              <div id="ico" class="fas fa-arrow-down"></div>
+            </button>
+            <button id="remove" class="remove button">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
 
           <ul id="list" class="list-scroll column content list show-off"></ul>
         </div>

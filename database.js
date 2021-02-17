@@ -9,12 +9,14 @@ const messageOfStatus = document.querySelector("#message");
 (function () {
   if (localStorage.getItem("Serial_List")) {
     // localStorage.setItem("Serial_List", JSON.stringify([]));
-    JSON.parse(localStorage.getItem("Serial_List")).forEach((el, i) => {
+    const localList = JSON.parse(localStorage.getItem("Serial_List"));
+
+    localList.forEach((el, i) => {
       listOfNum.innerHTML += `
-      <li class="list-item"><b>${i}. </b> ${el.serialNumber}</li>
-      `;
+    <li class="list-item"><b>${i}. </b> ${el.serialNumber}</li>
+    `;
     });
-    console.log(JSON.parse(localStorage.getItem("Serial_List")));
+    console.log("List", JSON.parse(localStorage.getItem("Serial_List")));
   } else {
     listOfNum.innerHTML += `
     empty
@@ -24,17 +26,24 @@ const messageOfStatus = document.querySelector("#message");
 
 function getSerialNum(ev) {
   ev.preventDefault();
-  let itemNum = serialNumIn.value;
+  let itemNum = serialNumIn.value.replace(/ /g,'');
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
   console.log(checkTwoValues(dropHistory, itemNum));
   // test if the num is on the list
   if (checkTwoValues(dropHistory, itemNum)) {
-    console.log("yes");
     hideMessage("is-warning", "The number is already on the list");
-    if (itemNum.length < 13) {
-      hideMessage("is-danger", "The field cannot be empty");
-      return;
-    }
+  }
+  if (itemNum.length === 0) {
+    hideMessage("is-danger", "The field cannot be empty");
+    return;
+  }
+  if (itemNum.length <= 12) {
+    hideMessage("is-danger", "The Series number cannot be less then 12");
+    return;
+  }
+  if (itemNum.length > 13) {
+    hideMessage("is-danger", "The Series number cannot be bigger then 13");
+    return;
   } else if (!checkTwoValues(dropHistory, itemNum)) {
     // Success ADDED
     serialNumIn.value = ``;
@@ -56,6 +65,9 @@ function checkTwoValues(listOfNumbers, givenNumber) {
   });
 
   if (arrList.includes(givenNumber)) {
+    return true;
+  }
+  if (givenNumber.length < 12 || givenNumber.length > 13) {
     return true;
   }
   if (givenNumber.length === 0) {

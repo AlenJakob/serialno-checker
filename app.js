@@ -4,6 +4,7 @@ import { cleanClass } from "./utils/cleanClass";
 import { footer } from "./utils/footer";
 
 const testNum = "018F7R33010269";
+// logo type display
 // import { logo } from "./utils/logo";
 // document.querySelector(".logoDom").innerHTML = logo;
 
@@ -11,17 +12,13 @@ document.querySelector("#footer-in").innerHTML = footer;
 const popup = document.querySelector("#popup");
 export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
-const formTrigger = document.querySelector(".form-trigger");
+const serialInput = document.querySelector(".form-trigger");
 const checkBtn = document.querySelector("#checkBtn");
 const importBtn = document.querySelector("#importBtn");
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
 // is-loading and remove after 1 second.
 const control = document.querySelector("#checkBtn");
-
-formTrigger.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
 
 let OutPut = {
   displaySerialNum4: document.querySelector("#out4"),
@@ -47,7 +44,7 @@ function displaySerialNumberToDom(inputVal) {
     OutPut["displaySerialNum6"].innerText = partThree;
 
     getDateOfProduction = [...partThree];
-
+    console.log(getDateOfProduction);
     OutPut["displaySerialNum7"].innerText = partFour;
     for (let el in OutPut) {
       OutPut[el].classList.add("tag", "is-medium");
@@ -66,15 +63,26 @@ let yearV = 2021;
 let yearW = 2022;
 let yearX = 2023;
 
+document.querySelector("#serialNum").addEventListener("keyup", (e) => {
+  e.stopImmediatePropagation();
+  console.log(e.target.value.replace(/\s+/, ""));
+  document.querySelector("#characters").innerText = e.target.value.replace(
+    /\s+/,
+    ""
+  ).length;
+});
+
 // submit form to display data to Dom
-formTrigger.addEventListener("submit", () => {
+serialInput.addEventListener("submit", (e) => {
+  console.log(e.target.value);
+  e.preventDefault();
   control.classList.add("is-loading");
   setTimeout(function () {
     control.classList.remove("is-loading");
     checkInput(serialNumIn);
     displaySerialNumberToDom(serialNumIn);
   }, 800);
-  outNumVal.innerText = serialNumIn.value;
+  outNumVal.innerText = serialNumIn.value.replace(/ /g, "");
 });
 
 const checkInput = (serialNumber) => {
