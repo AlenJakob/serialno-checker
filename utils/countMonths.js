@@ -1,6 +1,6 @@
 export function checkFromProd(dateFrom, dateTo) {
-  console.log("date from", dateFrom)
-  console.log("date too", dateTo)
+  console.log("date from", dateFrom);
+  console.log("date too", dateTo);
   const countedMonth =
     dateTo.getMonth() -
     dateFrom.getMonth() +
@@ -14,6 +14,8 @@ export function checkFromProd(dateFrom, dateTo) {
     return countedMonth;
   }
 }
+
+
 // months pattern
 let months = [
   "January",

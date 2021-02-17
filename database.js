@@ -16,7 +16,10 @@ const messageOfStatus = document.querySelector("#message");
     <li class="list-item"><b>${i}. </b> ${el.serialNumber}</li>
     `;
     });
-    console.log("List", JSON.parse(localStorage.getItem("Serial_List")));
+
+    localList.forEach((e) => {
+      console.log(e.serialNumber);
+    });
   } else {
     listOfNum.innerHTML += `
     empty
@@ -26,7 +29,7 @@ const messageOfStatus = document.querySelector("#message");
 
 function getSerialNum(ev) {
   ev.preventDefault();
-  let itemNum = serialNumIn.value.replace(/ /g,'');
+  let itemNum = serialNumIn.value.replace(/ /g, "");
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
   console.log(checkTwoValues(dropHistory, itemNum));
   // test if the num is on the list
