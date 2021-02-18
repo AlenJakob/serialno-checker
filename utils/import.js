@@ -46,19 +46,27 @@ document.getElementById("importBtn").addEventListener("click", () => {
         //   undefined,
         //   4
         // );
+
+        console.log("_-----------------------------_");
+        console.log(JSON.stringify(rowObject));
         localStorage.setItem("Serial_List", JSON.stringify(rowObject));
+        console.log(
+          "******************",
+          localStorage.setItem("Serial_List", JSON.stringify(rowObject))
+        );
         const list = JSON.parse(localStorage.getItem("Serial_List"));
 
         // for (let item of list) {
         //   console.log(item);
-        // }
+        // }? el.serialNumber.substr(5, 4) : "Try Again"
+        document.getElementById("list").classList.remove("show-off");
         document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
           document.getElementById("list").innerHTML += `
-            <li class="list-item"><b>${i} .</b> ${Object.values(
+            <li class="list-item"><b>${i}.</b> ${Object.values(
             el
           )} <i class="${getFullDate(
-            el.serialNumber.substr(5, 4)
+            el.serialNumber
           )} fas fa-check-square"></i></li>
             `;
         });

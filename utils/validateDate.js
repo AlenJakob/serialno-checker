@@ -13,7 +13,8 @@ let yearX = 2023;
 export default function validateDate(date) {
   const regex = /^[A-z0-9]{4}/i;
   // console.log(num.match(regex))
-  let txt = date.substr(5, 4).split("");
+
+//   let txt = date.substr(5, 4).split("");
   //   let result = txt.match(regex);
   //   console.log(txt);
   //   console.log(result);
@@ -22,7 +23,7 @@ export default function validateDate(date) {
   //   console.log("***Date*********************************************");
 }
 
-validateDate("040F5TC200584");
+// validateDate("040F5TC200584");
 
 // Test Year
 export function getFullDate(date) {
@@ -60,7 +61,7 @@ export function getFullDate(date) {
       console.log(`Sorry, have no information about that  ${date[0]}.`);
   }
 
-  let currentMonth = date[1].toUpperCase();
+  let currentMonth = date ? date[1].toUpperCase() : "";
   let entries = Object.entries(months);
   entries.forEach(([key, val], index) => {
     if (currentMonth == key.toUpperCase()) {

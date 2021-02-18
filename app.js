@@ -9,10 +9,12 @@ const testNum = "018F7R33010269";
 // document.querySelector(".logoDom").innerHTML = logo;
 
 document.querySelector("#footer-in").innerHTML = footer;
+
 const popup = document.querySelector("#popup");
 export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
-const serialInput = document.querySelector(".form-trigger");
+ const form = document.querySelector("#form");
+//const form = document.querySelector("#checkBtn");
 
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
@@ -50,7 +52,6 @@ function displaySerialNumberToDom(inputVal) {
     }
   }
   checkDate(getDateOfProduction);
-  
 }
 
 document.querySelector("#serialNum").addEventListener("keyup", (e) => {
@@ -62,8 +63,8 @@ document.querySelector("#serialNum").addEventListener("keyup", (e) => {
   ).length;
 });
 
-// submit form to display data to Dom
-serialInput.addEventListener("submit", (e) => {
+// submit form to display data to Dom form
+document.querySelector("#checkBtn").addEventListener("click", (e) => {
   e.preventDefault();
   control.classList.add("is-loading");
   setTimeout(function () {
@@ -111,7 +112,7 @@ function checkDate(date) {
   // ==========================
   let yearData = "";
   let monthData = "";
-  let monthDecimal = "";
+  let monthDataDecimal = "";
   let dayData = "";
   switch (date[0]) {
     case "Q":
@@ -145,15 +146,15 @@ function checkDate(date) {
 
   //check month of production and display to Dom
   function testMonth() {}
-  testMonth(date[1], monthDecimal);
+  testMonth(date[1], monthDataDecimal);
 
   let month = date[1].toUpperCase();
   let entries = Object.entries(months);
   entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {
-      console.log("VAL ---- >", val);
+      // console.log("VAL ---- >", val);
       monthData = val;
-      monthDecimal = index + 1;
+      monthDataDecimal = index + 1;
     } else {
       //  if month are not correct view a message
       return;
@@ -164,7 +165,7 @@ function checkDate(date) {
 
   displayDataToDom(yearData, monthData, dayData);
   const resultOfMonthsFromProd = checkFromProd(
-    new Date(yearData, monthDecimal),
+    new Date(yearData, monthDataDecimal),
     new Date()
   );
   OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;

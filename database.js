@@ -22,7 +22,7 @@ const messageOfStatus = document.querySelector("#message");
     <li class="list-item"><b>${i}. </b> ${
         el.serialNumber
       }  <i class="${getFullDate(
-        el.serialNumber.substr(5, 4)
+        el.serialNumber ? el.serialNumber.substr(5, 4) : ""
       )} fas fa-check-square"></i></li>
     `;
     });
@@ -69,7 +69,7 @@ function getSerialNum(ev) {
       <li class="list-item"><b> ${i}.</b> ${
         el.serialNumber
       } <i class="${getFullDate(
-        el.serialNumber.substr(5, 4)
+        el.serialNumber ? el.serialNumber.substr(5, 4) : ""
       )} fas fa-check-square"></i></li>
       `;
     });
