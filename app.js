@@ -13,10 +13,10 @@ const popup = document.querySelector("#popup");
 export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
 const serialInput = document.querySelector(".form-trigger");
-const checkBtn = document.querySelector("#checkBtn");
-const importBtn = document.querySelector("#importBtn");
+
 const checkInfo = document.querySelector("#checkInfo");
 let getDateOfProduction = [];
+
 // is-loading and remove after 1 second.
 const control = document.querySelector("#checkBtn");
 
@@ -44,24 +44,14 @@ function displaySerialNumberToDom(inputVal) {
     OutPut["displaySerialNum6"].innerText = partThree;
 
     getDateOfProduction = [...partThree];
-    console.log(getDateOfProduction);
     OutPut["displaySerialNum7"].innerText = partFour;
     for (let el in OutPut) {
       OutPut[el].classList.add("tag", "is-medium");
     }
   }
   checkDate(getDateOfProduction);
+  
 }
-
-// ==========================
-let yearQ = 2016;
-let yearR = 2017;
-let yearS = 2018;
-let yearT = 2019;
-let yearU = 2020;
-let yearV = 2021;
-let yearW = 2022;
-let yearX = 2023;
 
 document.querySelector("#serialNum").addEventListener("keyup", (e) => {
   e.stopImmediatePropagation();
@@ -74,7 +64,6 @@ document.querySelector("#serialNum").addEventListener("keyup", (e) => {
 
 // submit form to display data to Dom
 serialInput.addEventListener("submit", (e) => {
-  console.log(e.target.value);
   e.preventDefault();
   control.classList.add("is-loading");
   setTimeout(function () {
@@ -110,9 +99,19 @@ const checkInput = (serialNumber) => {
 };
 
 function checkDate(date) {
+  // ==========================
+  let yearQ = 2016;
+  let yearR = 2017;
+  let yearS = 2018;
+  let yearT = 2019;
+  let yearU = 2020;
+  let yearV = 2021;
+  let yearW = 2022;
+  let yearX = 2023;
+  // ==========================
   let yearData = "";
   let monthData = "";
-  let monthDataDecimal = "";
+  let monthDecimal = "";
   let dayData = "";
   switch (date[0]) {
     case "Q":
@@ -140,36 +139,32 @@ function checkDate(date) {
       yearData = yearX;
       break;
     default:
-      yearData = "Data is not Reconized";
+      yearData = "Data is not Recognized";
       console.log(`Sorry, have no information about that  ${date[0]}.`);
   }
 
   //check month of production and display to Dom
+  function testMonth() {}
+  testMonth(date[1], monthDecimal);
+
   let month = date[1].toUpperCase();
   let entries = Object.entries(months);
   entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {
+      console.log("VAL ---- >", val);
       monthData = val;
-      monthDataDecimal = index + 1;
+      monthDecimal = index + 1;
     } else {
       //  if month are not correct view a message
       return;
     }
   });
-  //Check the day input is correct
-  const prodDay = date[2] + date[3];
-  if (prodDay <= 0 || prodDay > 31) {
-    // here will be handle error message
-    console.log("the year cannot be less then 0 or higher than 31 for months");
-  } else {
-    dayData = prodDay;
-    // here will be handle success message
-    console.log("the day is correct");
-  }
+  //Return Day
+  dayData = date[2] + date[3];
 
   displayDataToDom(yearData, monthData, dayData);
   const resultOfMonthsFromProd = checkFromProd(
-    new Date(yearData, monthDataDecimal),
+    new Date(yearData, monthDecimal),
     new Date()
   );
   OutPut.displayMonth.innerHTML = resultOfMonthsFromProd;
@@ -203,10 +198,3 @@ checkInfo.addEventListener("change", (e) => {
     document.querySelector("#infobox").style.display = "none";
   }
 });
-
-// exportBtn.addEventListener("click", () => {
-//   const fileNameVal = document.querySelector("#fileName").value;
-//   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
-//   var xls = new XlsExport([...dropHistory], "list");
-//   xls.exportToXLS(fileNameVal);
-// });

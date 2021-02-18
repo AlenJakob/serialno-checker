@@ -1,3 +1,4 @@
+import { getFullDate } from "./validateDate";
 let selectedFile;
 console.log(window.XLSX);
 document.getElementById("input").addEventListener("change", (event) => {
@@ -54,7 +55,11 @@ document.getElementById("importBtn").addEventListener("click", () => {
         document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
           document.getElementById("list").innerHTML += `
-            <li class="list-item"><b>${i} . </b> ${Object.values(el)}</li>
+            <li class="list-item"><b>${i} .</b> ${Object.values(
+            el
+          )} <i class="${getFullDate(
+            el.serialNumber.substr(5, 4)
+          )} fas fa-check-square"></i></li>
             `;
         });
       });

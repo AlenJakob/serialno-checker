@@ -1,5 +1,9 @@
 console.log("Data base... ");
 import { serialNumIn } from "./app";
+import { getFullDate } from "./utils/validateDate";
+
+// console.log("TEST:",getFullDate('TC20'));
+
 const addToList = document.querySelector("#addToList");
 
 const listOfNum = document.querySelector("#list");
@@ -12,8 +16,14 @@ const messageOfStatus = document.querySelector("#message");
     const localList = JSON.parse(localStorage.getItem("Serial_List"));
 
     localList.forEach((el, i) => {
+      // getFullDate(el.serialNumber.substr(5,4))
+      console.log();
       listOfNum.innerHTML += `
-    <li class="list-item"><b>${i}. </b> ${el.serialNumber}</li>
+    <li class="list-item"><b>${i}. </b> ${
+        el.serialNumber
+      }  <i class="${getFullDate(
+        el.serialNumber.substr(5, 4)
+      )} fas fa-check-square"></i></li>
     `;
     });
 
@@ -31,7 +41,7 @@ function getSerialNum(ev) {
   ev.preventDefault();
   let itemNum = serialNumIn.value.replace(/ /g, "");
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
-  console.log(checkTwoValues(dropHistory, itemNum));
+  // console.log(checkTwoValues(dropHistory, itemNum));
   // test if the num is on the list
   if (checkTwoValues(dropHistory, itemNum)) {
     hideMessage("is-warning", "The number is already on the list");
@@ -56,7 +66,11 @@ function getSerialNum(ev) {
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
       listOfNum.innerHTML += `
-      <li class="list-item"><b> ${i}.</b> ${el.serialNumber}</li>
+      <li class="list-item"><b> ${i}.</b> ${
+        el.serialNumber
+      } <i class="${getFullDate(
+        el.serialNumber.substr(5, 4)
+      )} fas fa-check-square"></i></li>
       `;
     });
   }
@@ -104,17 +118,3 @@ function hideMessage(classStatus, msg) {
     messageOfStatus.classList.remove(classStatus, "tag");
   }, 1500);
 }
-
-// get data from input
-
-// store in array
-
-// add data to localstorage
-
-// When adding new get back the array check if there is existing record
-
-// if record is not in array add item to array
-
-// Click event to handle
-
-//  npm install xlsexport --save for exporting array to XLS file
