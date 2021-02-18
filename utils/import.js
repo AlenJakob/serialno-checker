@@ -63,12 +63,12 @@ document.getElementById("importBtn").addEventListener("click", () => {
         document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
           document.getElementById("list").innerHTML += `
-            <li class="list-item"><b>${i}.</b> ${Object.values(
-            el
-          )} <i class="${getFullDate(
+          <li class="list-item"><b>${i}. </b> ${
             el.serialNumber
+          }  <i class="${getFullDate(
+            el.serialNumber ? el.serialNumber.substr(5, 4) : ""
           )} fas fa-check-square"></i></li>
-            `;
+          `;
         });
       });
     };

@@ -66,12 +66,18 @@ function getSerialNum(ev) {
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
       listOfNum.innerHTML += `
-      <li class="list-item"><b> ${i}.</b> ${
+    <li class="list-item"><b>${i}. </b> ${
         el.serialNumber
-      } <i class="${getFullDate(
+      }  <i class="${getFullDate(
         el.serialNumber ? el.serialNumber.substr(5, 4) : ""
       )} fas fa-check-square"></i></li>
-      `;
+  `;
+      // <li class="list-item"><b>${i}. </b> ${
+      //     el.serialNumber
+      //   }  <i class="${getFullDate(
+      //     el.serialNumber ? el.serialNumber.substr(5, 4) : ""
+      //   )} fas fa-check-square"></i></li>
+      // `;
     });
   }
 }

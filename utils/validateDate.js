@@ -14,7 +14,7 @@ export default function validateDate(date) {
   const regex = /^[A-z0-9]{4}/i;
   // console.log(num.match(regex))
 
-//   let txt = date.substr(5, 4).split("");
+  //   let txt = date.substr(5, 4).split("");
   //   let result = txt.match(regex);
   //   console.log(txt);
   //   console.log(result);
@@ -77,7 +77,7 @@ export function getFullDate(date) {
   if (currFromProd > 30) {
     serialNumStatus = "has-text-danger";
     console.log("out of warranty RED");
-  } else {
+  } else if (currFromProd < 30) {
     serialNumStatus = "has-text-success";
     console.log("GREAT your product is on warranty Green");
   }
@@ -87,5 +87,5 @@ export function getFullDate(date) {
   //   return [year, month, date[2] + date[3]];
 }
 
-console.log(getFullDate(["S", "8", "2", "0"]));
+// console.log(getFullDate(["S", "8", "2", "0"]));
 // Test Day
