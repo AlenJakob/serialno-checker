@@ -1,6 +1,6 @@
 import { getFullDate } from "./validateDate";
 let selectedFile;
-console.log(window.XLSX);
+console.log(window.XLS);
 document.getElementById("input").addEventListener("change", (event) => {
   selectedFile = event.target.files[0];
 });
@@ -20,16 +20,16 @@ document.getElementById("importBtn").addEventListener("click", () => {
   //     : domList.classList
   //         .add("list-off");
 
-  XLSX.utils.json_to_sheet(data, "out.xlsx");
+  XLS.utils.json_to_sheet(data, "out.xls");
   if (selectedFile) {
     let fileReader = new FileReader();
     fileReader.readAsBinaryString(selectedFile);
     fileReader.onload = (event) => {
       let data = event.target.result;
-      let workbook = XLSX.read(data, { type: "binary" });
+      let workbook = XLS.read(data, { type: "binary" });
       console.log(workbook);
       workbook.SheetNames.forEach((sheet) => {
-        let rowObject = XLSX.utils.sheet_to_row_object_array(
+        let rowObject = XLS.utils.sheet_to_row_object_array(
           workbook.Sheets[sheet]
         );
         console.log(rowObject);
@@ -49,11 +49,11 @@ document.getElementById("importBtn").addEventListener("click", () => {
 
         console.log("_-----------------------------_");
         console.log(JSON.stringify(rowObject));
-        localStorage.setItem("Serial_List", JSON.stringify(rowObject));
-        console.log(
-          "******************",
-          localStorage.setItem("Serial_List", JSON.stringify(rowObject))
+        localStorage.setItem(
+          "Serial_List",
+          JSON.stringify(rowObject).replace(/ /g, "")
         );
+
         const list = JSON.parse(localStorage.getItem("Serial_List"));
 
         // for (let item of list) {
@@ -63,10 +63,10 @@ document.getElementById("importBtn").addEventListener("click", () => {
         document.getElementById("list").innerHTML = ``;
         list.forEach((el, i) => {
           document.getElementById("list").innerHTML += `
-          <li class="list-item"><b>${i}. </b> ${
+          <li class="list-item"><b>${i + 1}. </b> ${
             el.serialNumber
           }  <i class="${getFullDate(
-            el.serialNumber ? el.serialNumber.substr(5, 4) : ""
+            el.serialNumber.substr(5, 4)
           )} fas fa-check-square"></i></li>
           `;
         });

@@ -17,14 +17,15 @@ const messageOfStatus = document.querySelector("#message");
 
     localList.forEach((el, i) => {
       // getFullDate(el.serialNumber.substr(5,4))
-      console.log();
-      listOfNum.innerHTML += `
-    <li class="list-item"><b>${i}. </b> ${
-        el.serialNumber
-      }  <i class="${getFullDate(
-        el.serialNumber ? el.serialNumber.substr(5, 4) : ""
-      )} fas fa-check-square"></i></li>
-    `;
+      if (el) {
+        listOfNum.innerHTML += `
+        <li class="list-item"><b>${i + 1}. </b> ${
+          el.serialNumber
+        }  <i class="${getFullDate(
+          el.serialNumber.substr(5, 4)
+        )} fas fa-check-square"></i></li>
+        `;
+      }
     });
 
     localList.forEach((e) => {
@@ -66,10 +67,10 @@ function getSerialNum(ev) {
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
       listOfNum.innerHTML += `
-    <li class="list-item"><b>${i}. </b> ${
+    <li class="list-item"><b>${i + 1}. </b> ${
         el.serialNumber
       }  <i class="${getFullDate(
-        el.serialNumber ? el.serialNumber.substr(5, 4) : ""
+        el.serialNumber.substr(5, 4)
       )} fas fa-check-square"></i></li>
   `;
       // <li class="list-item"><b>${i}. </b> ${
