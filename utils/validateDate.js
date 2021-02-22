@@ -11,8 +11,6 @@ let yearW = 2022;
 let yearX = 2023;
 // ==========================
 
-let onWarranty = 0;
-let OutOfWarranty = 0;
 export default function validateDate(date) {
   const regex = /^[A-z0-9]{4}/i;
   // console.log(num.match(regex))
@@ -30,6 +28,8 @@ export default function validateDate(date) {
 
 // Test Year
 export function getFullDate(date) {
+  let onWarranty = 0;
+  let OutOfWarranty = 0;
   let serialNumStatus = "";
   let year = "";
   let month = "";
@@ -80,15 +80,14 @@ export function getFullDate(date) {
   let currFromProd = checkFromProd(new Date(year, monthDecimal), new Date());
   if (currFromProd > 30) {
     serialNumStatus = "has-text-danger";
-    OutOfWarranty++;
+
     console.log("out of warranty RED");
   } else if (currFromProd < 30) {
     serialNumStatus = "has-text-success";
-    onWarranty++;
-    console.log("GREAT your product is on warranty Green", onWarranty);
+
+    console.log("GREAT your product is on warranty Green");
   }
-  console.log(OutOfWarranty, "NOO");
-  console.log(onWarranty, "YES");
+
   //   return currFromProd;
   return serialNumStatus;
   //   return [year, month, date[2] + date[3]];

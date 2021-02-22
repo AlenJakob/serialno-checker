@@ -19,9 +19,11 @@ const messageOfStatus = document.querySelector("#message");
       // getFullDate(el.serialNumber.substr(5,4))
       if (el) {
         listOfNum.innerHTML += `
-        <li class="list-item"><b>${i + 1}. </b> ${
-          el.serialNumber
-        }  <i class="${getFullDate(
+        <li class="list-item" data-id="${getFullDate(
+          el.serialNumber.substr(5, 4)
+        )}"><b>${i + 1}. </b>
+        <span> ${el.serialNumber.toUpperCase()}</span>
+        <i class="${getFullDate(
           el.serialNumber.substr(5, 4)
         )} fas fa-check-square"></i></li>
         `;
@@ -63,7 +65,8 @@ function getSerialNum(ev) {
     serialNumIn.value = ``;
     hideMessage("is-success", "You have added you serial number to list");
     listOfNum.innerHTML = ``;
-    dropHistory.push({ serialNumber: itemNum });
+    // Adding number to List
+    dropHistory.push({ serialNumber: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
       listOfNum.innerHTML += `
@@ -125,3 +128,11 @@ function hideMessage(classStatus, msg) {
     messageOfStatus.classList.remove(classStatus, "tag");
   }, 1500);
 }
+
+// Check if has class and count on and out of warranty
+
+for (let i in [listOfNum.childNodes]) {
+  console.log(i);
+}
+
+console.log(listOfNum.childNodes);
