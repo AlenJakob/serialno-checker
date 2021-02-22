@@ -29,7 +29,7 @@ const messageOfStatus = document.querySelector("#message");
     });
 
     localList.forEach((e) => {
-      console.log(e.serialNumber);
+      // console.log(e.serialNumber);
     });
   } else {
     listOfNum.innerHTML += `

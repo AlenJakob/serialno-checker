@@ -13,7 +13,7 @@ document.querySelector("#footer-in").innerHTML = footer;
 const popup = document.querySelector("#popup");
 export const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
- const form = document.querySelector("#form");
+const form = document.querySelector("#form");
 //const form = document.querySelector("#checkBtn");
 
 const checkInfo = document.querySelector("#checkInfo");
@@ -56,7 +56,6 @@ function displaySerialNumberToDom(inputVal) {
 
 document.querySelector("#serialNum").addEventListener("keyup", (e) => {
   e.stopImmediatePropagation();
-  console.log(e.target.value.replace(/\s+/, ""));
   document.querySelector("#characters").innerText = e.target.value.replace(
     /\s+/,
     ""
@@ -78,7 +77,7 @@ document.querySelector("#checkBtn").addEventListener("click", (e) => {
 const checkInput = (serialNumber) => {
   const passMessage = [
     `Warning The Serial number length is possible 13 characters`,
-    "Serial number length cant be bigger than 15",
+    "Serial number length cant be bigger than 13",
     "Serial number is correct",
   ];
   const [serialNumWarning, serialNumCorrect, serialNumWrong] = passMessage;
