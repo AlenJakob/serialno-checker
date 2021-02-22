@@ -3,7 +3,9 @@ import { serialNumIn } from "./app";
 import { getFullDate } from "./utils/validateDate";
 
 // console.log("TEST:",getFullDate('TC20'));
-
+// count on and out of warranty
+let onWarranty = 0;
+let OutOfWarranty = 0;
 const addToList = document.querySelector("#addToList");
 
 const listOfNum = document.querySelector("#list");
@@ -16,22 +18,22 @@ const messageOfStatus = document.querySelector("#message");
     const localList = JSON.parse(localStorage.getItem("Serial_List"));
 
     localList.forEach((el, i) => {
-      // getFullDate(el.serialNumber.substr(5,4))
+      // getFullDate(el.serial.substr(5,4))
       if (el) {
         listOfNum.innerHTML += `
         <li class="list-item" data-id="${getFullDate(
-          el.serialNumber.substr(5, 4)
+          el.serial.substr(5, 4)
         )}"><b>${i + 1}. </b>
-        <span> ${el.serialNumber.toUpperCase()}</span>
+        <span> ${el.serial.toUpperCase()}</span>
         <i class="${getFullDate(
-          el.serialNumber.substr(5, 4)
+          el.serial.substr(5, 4)
         )} fas fa-check-square"></i></li>
         `;
       }
     });
 
     localList.forEach((e) => {
-      // console.log(e.serialNumber);
+      // console.log(e.serial);
     });
   } else {
     listOfNum.innerHTML += `
@@ -62,36 +64,32 @@ function getSerialNum(ev) {
     return;
   } else if (!checkTwoValues(dropHistory, itemNum)) {
     // Success ADDED
-    serialNumIn.value = ``;
+    serialNumIn.value = ``.toUpperCase();
     hideMessage("is-success", "You have added you serial number to list");
     listOfNum.innerHTML = ``;
     // Adding number to List
-    dropHistory.push({ serialNumber: itemNum.toUpperCase() });
+    dropHistory.push({ serial: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.forEach((el, i) => {
       listOfNum.innerHTML += `
-    <li class="list-item"><b>${i + 1}. </b> ${
-        el.serialNumber
+    <li class="list-item item"><b>${i + 1}. </b> ${
+        el.serial
       }  <i class="${getFullDate(
-        el.serialNumber.substr(5, 4)
+        el.serial.substr(5, 4)
       )} fas fa-check-square"></i></li>
   `;
-      // <li class="list-item"><b>${i}. </b> ${
-      //     el.serialNumber
-      //   }  <i class="${getFullDate(
-      //     el.serialNumber ? el.serialNumber.substr(5, 4) : ""
-      //   )} fas fa-check-square"></i></li>
-      // `;
     });
   }
 }
+// helper to return 1 true or 0 false
+
 function checkTwoValues(listOfNumbers, givenNumber) {
-  let arrList = [];
-  listOfNumbers.map((el) => {
-    arrList.push(Object.values(el)[0]);
+  let arrList = JSON.parse(localStorage.getItem("Serial_List")) || [];
+  const list = arrList.map((el) => {
+    return el.serial;
   });
 
-  if (arrList.includes(givenNumber)) {
+  if (list.includes(givenNumber.toUpperCase())) {
     return true;
   }
   if (givenNumber.length < 12 || givenNumber.length > 13) {
@@ -131,8 +129,25 @@ function hideMessage(classStatus, msg) {
 
 // Check if has class and count on and out of warranty
 
-for (let i in [listOfNum.childNodes]) {
-  console.log(i);
-}
+// console.log(listOfNum.childNodes);
 
-console.log(listOfNum.childNodes);
+// function countWarrantyAmount() {
+// Count warranty on or out
+
+//   const itemNums = document.querySelectorAll(".item");
+//   // console.log(itemNums);
+
+//   for (let i = 0; i < itemNums.length; i++) {
+//     const dataId = itemNums[i].getAttribute("data-id");
+//     console.log(itemNums[i].getAttribute("data-id"));
+//     console.log(typeof dataId);
+//     if (dataId === 1) {
+//       onWarranty++;
+//     } else if (dataId === 0) {
+//       OutOfWarranty++;
+//     }
+//   }
+
+//   console.log("YES", onWarranty);
+//   console.log("No", OutOfWarranty);
+// }
