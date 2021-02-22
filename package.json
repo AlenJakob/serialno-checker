@@ -2,7 +2,7 @@
   "name": "serialno-checker",
   "version": "1.0.0",
   "description": "The application that help check serial no. for warranty",
-  "main": "app.js",
+  "main": "dist/index.html",
   "dependencies": {
     "parcel-bundler": "^1.12.4",
     "xlsexport": "^1.5.2"

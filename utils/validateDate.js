@@ -80,12 +80,8 @@ export function getFullDate(date) {
   let currFromProd = checkFromProd(new Date(year, monthDecimal), new Date());
   if (currFromProd > 30) {
     serialNumStatus = "has-text-danger";
-
-    console.log("out of warranty RED");
   } else if (currFromProd < 30) {
     serialNumStatus = "has-text-success";
-
-    console.log("GREAT your product is on warranty Green");
   }
 
   //   return currFromProd;
