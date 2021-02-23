@@ -196,4 +196,3 @@ checkInfo.addEventListener("change", (e) => {
     document.querySelector("#infobox").style.display = "none";
   }
 });
-

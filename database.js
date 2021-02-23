@@ -105,10 +105,18 @@ function checkTwoValues(listOfNumbers, givenNumber) {
 }
 
 addToList.addEventListener("click", getSerialNum);
-
-showListBtn.addEventListener("click", () => {
+document.querySelector("#ico1").classList.add("is-hidden");
+showListBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   listOfNum.classList.toggle("show-off");
-  showListBtn.classList.toggle("is-orange");
+
+  if (!listOfNum.classList.contains("show-off")) {
+    document.querySelector("#ico1").classList.add("is-hidden");
+    document.querySelector("#ico2").classList.remove("is-hidden");
+  } else {
+    document.querySelector("#ico1").classList.remove("is-hidden");
+    document.querySelector("#ico2").classList.add("is-hidden");
+  }
 });
 
 removeBtn.addEventListener("click", () => {
