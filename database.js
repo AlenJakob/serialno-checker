@@ -21,13 +21,13 @@ const messageOfStatus = document.querySelector("#message");
       // getFullDate(el.serial.substr(5,4))
       if (el) {
         listOfNum.innerHTML += `
-        <li class="list-item" data-id="${getFullDate(
-          el.serial.substr(5, 4)
-        )}"><b>${i + 1}. </b>
+        <li class="list-item" data-id="${i}"><b>${i + 1}. </b>
         <span> ${el.serial.toUpperCase()}</span>
         <i class="${getFullDate(
           el.serial.substr(5, 4)
-        )} fas fa-check-square"></i></li>
+        )} fas fa-check-square"></i>
+        <i  class="delete" style="float:right";></i>
+     </li>
         `;
       }
     });
@@ -72,11 +72,13 @@ function getSerialNum(ev) {
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     dropHistory.reverse().forEach((el, i) => {
       listOfNum.innerHTML += `
-    <li class="list-item item"><b>${i + 1}. </b> ${
+    <li class="list-item item" data-id="${i}"><b>${i + 1}. </b> ${
         el.serial
       }  <i class="${getFullDate(
         el.serial.substr(5, 4)
-      )} fas fa-check-square"></i></li>
+      )} fas fa-check-square"></i>
+      <i class="delete" style="float:right";></i>
+      </li>
   `;
     });
   }

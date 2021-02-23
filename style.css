@@ -175,7 +175,7 @@ button.is-orange {
   display: flex;
 }
 .remove::before {
-  content: "Remove ";
+  content: "Remove List";
   margin-right: 5px;
 }
 .add::before {
