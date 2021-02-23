@@ -78,16 +78,13 @@ export function getFullDate(date) {
   });
 
   let currFromProd = checkFromProd(new Date(year, monthDecimal), new Date());
+
   if (currFromProd > 30) {
     serialNumStatus = "has-text-danger";
   } else if (currFromProd < 30) {
     serialNumStatus = "has-text-success";
   }
 
-  //   return currFromProd;
   return serialNumStatus;
   //   return [year, month, date[2] + date[3]];
 }
-
-// console.log(getFullDate(["S", "8", "2", "0"]));
-// Test Day

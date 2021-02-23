@@ -145,7 +145,7 @@ function checkDate(date) {
   function testMonth() {}
   testMonth(date[1], monthDataDecimal);
 
-  let month = date[1].toUpperCase();
+  let month = date[1].toUpperCase() || "";
   let entries = Object.entries(months);
   entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {

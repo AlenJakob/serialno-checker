@@ -17,7 +17,7 @@ const messageOfStatus = document.querySelector("#message");
     // localStorage.setItem("Serial_List", JSON.stringify([]));
     const localList = JSON.parse(localStorage.getItem("Serial_List"));
 
-    localList.forEach((el, i) => {
+    localList.reverse().forEach((el, i) => {
       // getFullDate(el.serial.substr(5,4))
       if (el) {
         listOfNum.innerHTML += `
@@ -70,7 +70,7 @@ function getSerialNum(ev) {
     // Adding number to List
     dropHistory.push({ serial: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
-    dropHistory.forEach((el, i) => {
+    dropHistory.reverse().forEach((el, i) => {
       listOfNum.innerHTML += `
     <li class="list-item item"><b>${i + 1}. </b> ${
         el.serial
@@ -113,7 +113,7 @@ showListBtn.addEventListener("click", () => {
 
 removeBtn.addEventListener("click", () => {
   localStorage.clear();
-  listOfNum.innerHTML = ``;
+  listOfNum.innerHTML = `empty`;
   hideMessage("is-warning", "List has been cleared");
 });
 
@@ -126,28 +126,3 @@ function hideMessage(classStatus, msg) {
     messageOfStatus.classList.remove(classStatus, "tag");
   }, 1500);
 }
-
-// Check if has class and count on and out of warranty
-
-// console.log(listOfNum.childNodes);
-
-// function countWarrantyAmount() {
-// Count warranty on or out
-
-//   const itemNums = document.querySelectorAll(".item");
-//   // console.log(itemNums);
-
-//   for (let i = 0; i < itemNums.length; i++) {
-//     const dataId = itemNums[i].getAttribute("data-id");
-//     console.log(itemNums[i].getAttribute("data-id"));
-//     console.log(typeof dataId);
-//     if (dataId === 1) {
-//       onWarranty++;
-//     } else if (dataId === 0) {
-//       OutOfWarranty++;
-//     }
-//   }
-
-//   console.log("YES", onWarranty);
-//   console.log("No", OutOfWarranty);
-// }

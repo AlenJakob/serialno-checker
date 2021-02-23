@@ -27,48 +27,32 @@ document.getElementById("importBtn").addEventListener("click", () => {
     fileReader.onload = (event) => {
       let data = event.target.result;
       let workbook = XLS.read(data, { type: "binary" });
-      console.log(workbook);
       workbook.SheetNames.forEach((sheet) => {
         let rowObject = XLS.utils.sheet_to_row_object_array(
           workbook.Sheets[sheet]
         );
-        console.log(rowObject);
-        //     document.getElementById("jsondata").innerHTML = JSON.stringify(
-        //       rowObject,
-        //       undefined,
-        //       4
-        //     );
-        //   });
 
-        // Test display given data
-        // document.getElementById("list").innerHTML = JSON.stringify(
-        //   rowObject,
-        //   undefined,
-        //   4
-        // );
-
-        console.log("_-----------------------------_");
-        console.log(JSON.stringify(rowObject));
         localStorage.setItem(
           "Serial_List",
           JSON.stringify(rowObject).replace(/ /g, "")
         );
 
         const list = JSON.parse(localStorage.getItem("Serial_List"));
-
         // for (let item of list) {
         //   console.log(item);
         // }? el.serialNumber.substr(5, 4) : "Try Again"
         document.getElementById("list").classList.remove("show-off");
         document.getElementById("list").innerHTML = ``;
+
         list.forEach((el, i) => {
-          document.getElementById("list").innerHTML += `
-          <li class="list-item"><b>${i + 1}. </b> ${
-            el.serialNumber
-          }  <i class="${getFullDate(
-            el.serialNumber.substr(5, 4)
-          )} fas fa-check-square"></i></li>
-          `;
+          if (el != undefined) {
+            document.getElementById("list").innerHTML += `
+            <li class="list-item"><b>${i + 1}. </b> ${
+              el.serial
+            }  <i class="${getFullDate(el.serial.substr(5, 4))}
+           fas fa-check-square"></i></li>
+            `;
+          }
         });
       });
     };

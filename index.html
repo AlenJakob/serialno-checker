@@ -66,7 +66,6 @@
             </div>
           </form>
 
-          <div id="message" class="is-medium mb-2"></div>
 
           <!-- <div class="box buttons show-off">
             <button id="bas" class="button is-dark show-off">
@@ -76,11 +75,20 @@
               </span>
             </button>
           </div> -->
+          <div class="buttons">
+            <button id="remove" class="remove button is-danger">
+              <i class="fas fa-trash-alt"></i></button
+            ><button class="arrow button is-info">
+              <div id="ico" class="fas fa-lock-open"></div>
+            </button>
+          </div>
 
+          <ul id="list" class="list-scroll column content list"></ul>
+          <div id="message" class="is-medium mb-2"></div>
           <div>
             <!-- class="is-hidden"  Class to hide div from Bulma - update coming -->
             <div class="is-divider"></div>
-            <p class="title is-4 is-spaced">Download File</p>
+            <p class="title is-4 is-spaced">Export to XLS File</p>
             <p class="help">File name</p>
             <div class="field has-addons">
               <div class="control">
@@ -129,10 +137,7 @@
                   </span>
                 </label>
                 <div class="field mt-2">
-                  <button
-                    id="importBtn"
-                    class="button is-orange has-text-white"
-                  >
+                  <button id="importBtn" class="button is-link has-text-white">
                     <span>Proceed</span
                     ><span class="icon">
                       <i class="fas fa-arrow-right"></i>
@@ -144,16 +149,6 @@
             <div class="is-divider"></div>
           </div>
           <!-- IMPORT  -->
-
-          <div class="buttons">
-            <button id="remove" class="remove button is-danger">
-              <i class="fas fa-trash-alt"></i></button
-            ><button class="arrow button is-info">
-              <div id="ico" class="fas fa-arrow-down"></div>
-            </button>
-          </div>
-
-          <ul id="list" class="list-scroll column content list show-off"></ul>
         </div>
       </div>
       <div class="column list box is-5">
