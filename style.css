@@ -273,7 +273,7 @@ button.is-orange {
 }
 
 .anim {
-  animation: addItem 1s ;
+  animation: addItem 1s;
   animation-fill-mode: forwards;
 }
 
@@ -283,5 +283,29 @@ button.is-orange {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+/* rwd media queries */
+
+@media (max-width: 400px) {
+  .button:before {
+    content: none;
+  }
+  .column.list,
+  .column {
+    width: 100% !important;
+    padding: 5px 8px;
+    margin: 8px 0;
+  }
+  .box {
+    margin: 0;
+    padding: 0;
+  }
+  .logoStyle {
+    padding-top: 1rem !important;
+  }
+  .container_view {
+    margin-top: 0.5rem !important;
   }
 }
