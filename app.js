@@ -11,7 +11,7 @@ const testNum = "018F7R33010269";
 document.querySelector("#footer-in").innerHTML = footer;
 
 const popup = document.querySelector("#popup");
-export const serialNumIn = document.querySelector("#serialNum");
+const serialNumIn = document.querySelector("#serialNum");
 const outNumVal = document.querySelector("#outNumVal");
 
 const checkInfo = document.querySelector("#checkInfo");
@@ -149,7 +149,6 @@ function checkDate(date) {
   let entries = Object.entries(months);
   entries.forEach(([key, val], index) => {
     if (month == key.toUpperCase()) {
-      // console.log("VAL ---- >", val);
       monthData = val;
       monthDataDecimal = index + 1;
     } else {

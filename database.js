@@ -1,13 +1,14 @@
 console.log("Data base... ");
-import { serialNumIn } from "./app";
 import { getFullDate } from "./utils/validateDate";
 import { insertListDom } from "./utils/dom/insertToDom";
+import { v4 as uniqueItemId } from "uuid";
 // console.log("TEST:",getFullDate('TC20'));
 // count on and out of warranty
 let onWarranty = 0;
 let OutOfWarranty = 0;
 const addToList = document.querySelector("#addToList");
 
+const serialNumIn = document.querySelector("#serialNum");
 let domList = document.querySelector("#list");
 const showListBtn = document.querySelector(".arrow");
 const removeBtn = document.querySelector("#remove");
@@ -47,7 +48,7 @@ function getSerialNum(ev) {
     hideMessage("is-success", "You have added you serial number to list");
     domList.innerHTML = ``;
     // Adding number to List
-    dropHistory.push({ serial: itemNum.toUpperCase() });
+    dropHistory.push({ id: uniqueItemId(), serial: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
     insertListDom(domList, list, getFullDate);
   }
