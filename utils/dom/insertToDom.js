@@ -1,4 +1,5 @@
 export function insertListDom(domList, arrayList, getFullDate) {
+  console.log(arrayList);
   return arrayList.forEach((el, i) => {
     domList.innerHTML += `
         <li class="list-item item" data-id="${el.id}"><b>${i + 1}. </b> ${

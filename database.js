@@ -16,8 +16,8 @@ const messageOfStatus = document.querySelector("#message");
 (function () {
   if (localStorage.getItem("Serial_List")) {
     // localStorage.setItem("Serial_List", JSON.stringify([]));
-    const list = JSON.parse(localStorage.getItem("Serial_List"));
 
+    let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
     insertListDom(domList, list, getFullDate);
   }
 })();
@@ -50,6 +50,7 @@ function getSerialNum(ev) {
     // Adding number to List
     dropHistory.push({ id: uniqueItemId(), serial: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
+    let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
     insertListDom(domList, list, getFullDate);
   }
 }
