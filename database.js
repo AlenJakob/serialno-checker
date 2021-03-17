@@ -56,12 +56,11 @@ function getSerialNum(ev) {
 }
 // helper to return 1 true or 0 false
 
-function checkTwoValues(domListbers, givenNumber) {
+function checkTwoValues(list, givenNumber) {
   let arrList = JSON.parse(localStorage.getItem("Serial_List")) || [];
-  const list = arrList.map((el) => {
+  list = arrList.map((el) => {
     return el.serial;
   });
-
   if (list.includes(givenNumber.toUpperCase())) {
     return true;
   }

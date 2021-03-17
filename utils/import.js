@@ -3,7 +3,6 @@ import { insertListDom } from "../utils/dom/insertToDom";
 
 import { v4 as uniqueItemId } from "uuid";
 let selectedFile;
-console.log(window.XLS);
 document.getElementById("input").addEventListener("change", (event) => {
   selectedFile = event.target.files[0];
 });
@@ -34,7 +33,6 @@ document.getElementById("importBtn").addEventListener("click", () => {
 
         rowObject.forEach((e) => {
           e["id"] = uniqueItemId();
-          console.log(e);
         });
         localStorage.setItem(
           "Serial_List",

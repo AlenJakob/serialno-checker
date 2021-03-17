@@ -1,3 +1,4 @@
+import { getFullDate } from "../validateDate";
 export function insertListDom(domList, arrayList, getFullDate) {
   arrayList.forEach((el, i) => {
     // console.log(el.id);
@@ -13,15 +14,24 @@ export function insertListDom(domList, arrayList, getFullDate) {
       `;
   });
 
+  function removeElemFromList(ListWithRemovedItem, id) {
+    let newArr = ListWithRemovedItem.filter((item) => {
+      return item.id != id;
+    });
+    console.log(newArr);
+    localStorage.setItem("Serial_List", JSON.stringify(newArr));
+  }
+
+  let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
   const listItem = document.querySelectorAll("#list li");
-  listItem.forEach((e) => {
-    //  if(e.target){
-    e.addEventListener("click", (e) => {
-      // console.log(e.target);
+
+  listItem.forEach((el) => {
+    el.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete")) {
-        console.log(e.target.getAttribute("data-id"));
+        let id = e.target.getAttribute("data-id");
+        e.target.parentElement.remove();
+        removeElemFromList(list, id);
       }
     });
-    //  }
   });
 }
