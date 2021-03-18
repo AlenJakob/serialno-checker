@@ -2,8 +2,6 @@ import { getFullDate } from "../validateDate";
 
 export function insertListDom(domList, arrayList, getFullDate) {
   arrayList.forEach((el, i) => {
-    // console.log(el.id);
-
     domList.innerHTML += `
         <li class="list-item item"><b>${i + 1}. </b> ${
       el.serial

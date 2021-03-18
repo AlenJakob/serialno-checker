@@ -42,7 +42,7 @@ document.getElementById("importBtn").addEventListener("click", () => {
         const list = JSON.parse(localStorage.getItem("Serial_List"));
 
         document.getElementById("list").classList.remove("show-off");
-        domList.innerHTML = ``;
+        // domList.innerHTML = ``;
         insertListDom(domList, list, getFullDate);
       });
     };

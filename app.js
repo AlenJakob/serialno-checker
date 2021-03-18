@@ -71,7 +71,9 @@ document.querySelector("#checkBtn").addEventListener("click", (e) => {
   }, 800);
   outNumVal.innerText = serialNumIn.value.replace(/ /g, "");
 });
-
+// Methods that set message and check the length
+//This Funcionality have to be switched by existing better validation
+// DRY HERE !!!!!
 const checkInput = (serialNumber) => {
   const passMessage = [
     `Warning The Serial number length is possible 13 characters`,
