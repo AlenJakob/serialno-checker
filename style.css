@@ -62,7 +62,9 @@
 .m-1 {
   margin-top: 1rem !important;
 }
-
+.my-1 {
+  margin: 0.5rem 0;
+}
 .m-2 {
   margin: 2rem !important;
 }
@@ -330,4 +332,8 @@ button.is-orange {
 .legend-list li {
   max-width: 50%;
   border-bottom: 1px solid #dbdbdb;
+}
+.help-hint {
+  display: flex;
+  align-items: center;
 }

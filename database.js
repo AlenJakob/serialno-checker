@@ -9,7 +9,7 @@ let OutOfWarranty = 0;
 const addToList = document.querySelector("#addToList");
 
 const serialNumIn = document.querySelector("#serialNum");
-let domList = document.querySelector("#list");
+const domList = document.querySelector("#list");
 const showListBtn = document.querySelector(".arrow");
 const removeBtn = document.querySelector("#remove");
 const messageOfStatus = document.querySelector("#message");
@@ -22,8 +22,8 @@ const messageOfStatus = document.querySelector("#message");
   }
 })();
 
-function getSerialNum(ev) {
-  ev.preventDefault();
+function getSerialNum(e) {
+  e.preventDefault();
   let itemNum = serialNumIn.value.replace(/ /g, "");
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
 
@@ -72,8 +72,6 @@ function checkTwoValues(list, givenNumber) {
   } else {
     return false;
   }
-
-  // console.log(givenNumber);
 }
 
 addToList.addEventListener("click", getSerialNum);
