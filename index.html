@@ -17,174 +17,165 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body class="box">
-    <div id="basImg" class="bas-img"></div>
+  <body>
     <!-- Logotypeof Bafang -->
-    <!-- <div class="columns is-centered">
-      <figure class="logoDom image is-one-quarter column"></figure>
-    </div> -->
-    <div class="columns">
+
+    <div class="columns is-centered">
+      <a
+        href="https://bafang-e.com"
+        class="logoDom is-logoBtn image is-one-quarter column"
+      ></a>
+    </div>
+    <!-- Old Logo -->
+    <!-- <div class="columns">
       <div class="column">
         <a class="btn-logo" href="https://bafang-e.com">
           <div class="title has-text-centered is-size-1 logoStyle">Bafang</div>
         </a>
         <div class="subtitle has-text-centered logoStyle">Warranty Checker</div>
       </div>
-    </div>
+    </div> -->
 
     <div
       class="container_view columns is-justify-content-space-evenly content-mt-3"
     >
-      <div class="column list box m-0 is-6">
+      <div class="column is-6 list">
         <div class="message-header is-orange">
           <p>Check your mid motor</p>
         </div>
 
         <div class="column"><b>Serial Number : 040f5TC200584</b></div>
-
-        <div class="column">
-          <p class="help">
-            Character length - ( <b id="characters">0</b> ) char.
-          </p>
-          <form id="form" class="control columns">
-            <div class="field column has-addons">
-              <input
-                id="serialNum"
-                class="input"
-                type="text"
-                value=""
-                autocomplete="off"
-              />
-              <button id="addToList" class="add button is-success">
-                <i class="ml-2 fas fa-plus"></i></button
-              ><button
-                id="checkBtn"
-                class="check button has-text-white is-orange"
-              >
-                <i class="check fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </form>
-
-          <!-- <div class="box buttons show-off">
-            <button id="bas" class="button is-dark show-off">
-              <span>Bas Detector</span>
-              <span class="icon">
-                <i class="far fa-thumbs-up"></i>
-              </span>
-            </button>
-          </div> -->
-          <div class="buttons">
-            <button id="remove" class="remove button is-danger">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-            <button id="listBtn" class="arrow button is-info">
-              <div id="ico1"><i class="fas fa-lock"></i></div>
-              <div id="ico2"><i class="fas fa-lock-open"></i></div>
+        <p class="help">
+          Character length - ( <b id="characters">0</b> ) char.
+        </p>
+        <form id="form" class="control columns">
+          <div class="field column has-addons">
+            <input
+              id="serialNum"
+              class="input"
+              type="text"
+              value=""
+              autocomplete="off"
+            />
+            <button id="addToList" class="add button is-success">
+              <i class="ml-2 fas fa-plus"></i></button
+            ><button
+              id="checkBtn"
+              class="check button has-text-white is-orange"
+            >
+              <i class="check fa fa-search" aria-hidden="true"></i>
             </button>
           </div>
+        </form>
 
-          <ul id="list" class="list-scroll column content list"></ul>
-          <div id="message" class="is-medium mb-2"></div>
-          <div>
-            <!-- class="is-hidden"  Class to hide div from Bulma - update coming -->
-            <div class="box legend-list">
-              <h2 class="m-1">Legend:</h2>
-              <ul class="legend-list tabs">
-                <div class="columns is-multiline is-mobile">
-                  <li class="is-size-6 column">
-                    Out of warranty
-                    <i class="has-text-danger fas fa-check-square"></i>
-                  </li>
-                  <li class="is-size-6 column">
-                    On warranty
-                    <i class="has-text-success fas fa-check-square"></i>
-                  </li>
-                  <li class="is-size-6 column">
-                    Was not produced
-                    <i class="has-text-danger-dark fas fa-check-square"></i>
-                  </li>
-                </div>
-              </ul>
-              <h2 class="column">View:</h2>
-              <button id="exportWindowBtn" class="button is-info">
+        <div class="buttons">
+          <button id="remove" class="remove button is-small is-danger">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button id="listBtn" class="arrow button is-small is-info">
+            <div id="ico1"><i class="fas fa-lock"></i></div>
+            <div id="ico2"><i class="fas fa-lock-open"></i></div>
+          </button>
+        </div>
+
+        <ul id="list" class="list-scroll column content list"></ul>
+        <div id="message" class="is-medium mb-2"></div>
+        <div>
+          <!-- class="is-hidden"  Class to hide div from Bulma - update coming -->
+          <div class="box legend-list list">
+            <h2 class="m-1">Legend:</h2>
+            <ul class="legend-list tabs">
+              <div class="columns is-multiline is-mobile">
+                <li class="is-size-6 column">
+                  Out of warranty
+                  <i class="has-text-danger fas fa-check-square"></i>
+                </li>
+                <li class="is-size-6 column">
+                  On warranty
+                  <i class="has-text-success fas fa-check-square"></i>
+                </li>
+                <li class="is-size-6 column">
+                  Was not produced
+                  <i class="has-text-danger-dark fas fa-check-square"></i>
+                </li>
+              </div>
+            </ul>
+            <div class="">
+              <h2 class="m-1">Export & Import File:</h2>
+              <button id="exportWindowBtn" class="button is-small is-info mb-2">
                 <span class="icon"> <i class="fas fa-download"></i> </span
                 ><span>Export</span>
               </button>
-              <button id="importWindowBtn" class="button is-link">
+              <button id="importWindowBtn" class="button is-small is-link">
                 <span class="icon"> <i class="fas fa-upload"></i></span>
                 <span>Import</span>
               </button>
             </div>
-            <div id="exportWindow" class="export-window is-hidden">
-              <div class="is-divider"></div>
-              <p class="title is-4 is-spaced">Export to XLS File</p>
-              <p class="help">File name</p>
-              <div class="field has-addons">
-                <div class="control">
-                  <input
-                    id="fileName"
-                    class="input is-link"
-                    type="text"
-                    placeholder="file name"
-                    value="Mid Motor v1"
-                  />
-                </div>
-                <button id="exportBtn" class="button is-link">
-                  <span class="icon">
-                    <i class="fas fa-download"></i>
-                  </span>
-                  <span> Export XLS</span>
-                </button>
+          </div>
+          <div id="exportWindow" class="export-window is-hidden">
+            <div class="is-divider"></div>
+            <p class="title is-4 is-spaced">Export to XLS File</p>
+            <p class="help">File name</p>
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  id="fileName"
+                  class="input is-link"
+                  type="text"
+                  placeholder="file name"
+                  value="Mid Motor v1"
+                />
               </div>
+              <button id="exportBtn" class="button is-success">
+                <span class="icon">
+                  <i class="fas fa-download"></i>
+                </span>
+                <span> Export XLS</span>
+              </button>
             </div>
           </div>
-
-          <div>
-            <div id="importWindow" class="import-window is-hidden">
-              <div class="is-divider"></div>
-              <p class="title is-4 is-spaced">Upload File</p>
-              <div class="columns">
-                <div
-                  id="file-js-example"
-                  class="column file is-small has-name is-dark"
-                >
-                  <label class="file-label">
-                    <input
-                      id="input"
-                      accept=".xls,.xlsx"
-                      class="file-input"
-                      type="file"
-                      name="resume"
-                    />
-                    <span class="file-cta">
-                      <span class="file-icon">
-                        <i class="fas fa-upload"></i>
-                      </span>
-                      <span class="file-label"> Choose a file… </span>
-                    </span>
-
-                    <span id="jsondata" class="file-name">
-                      No file uploaded
-                    </span>
-                  </label>
-                  <div class="field mt-2">
-                    <button
-                      id="importBtn"
-                      class="button is-link has-text-white"
-                    >
-                      <span>Proceed</span
-                      ><span class="icon">
-                        <i class="fas fa-arrow-right"></i>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- IMPORT  -->
         </div>
+
+        <div>
+          <div id="importWindow" class="import-window is-hidden">
+            <div class="is-divider"></div>
+            <p class="title is-4 is-spaced">Upload File</p>
+            <div class="columns">
+              <div id="file-js-example" class="column file is-small has-name">
+                <label class="file-label">
+                  <input
+                    id="input"
+                    accept=".xls,.xlsx"
+                    class="file-input"
+                    type="file"
+                    name="resume"
+                  />
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label"> Choose a file… </span>
+                  </span>
+
+                  <span id="jsondata" class="file-name">
+                    No file uploaded
+                  </span>
+                </label>
+                <div class="field mt-2">
+                  <button
+                    id="importBtn"
+                    class="button is-success has-text-white"
+                  >
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i> </span
+                    ><span class="file-label"> Proceed </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- IMPORT  -->
       </div>
       <div class="column list box is-5">
         <div>

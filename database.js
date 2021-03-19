@@ -93,7 +93,7 @@ showListBtn.addEventListener("click", (e) => {
 
 removeBtn.addEventListener("click", () => {
   localStorage.clear();
-  domList.innerHTML = `empty`;
+  domList.innerHTML = `List is empty`;
   hideMessage("is-warning", "List has been cleared");
 });
 

@@ -150,7 +150,7 @@ button.is-orange {
 .info-mt-2 {
   margin-top: 2rem;
 }
-.btn-logo:hover .opacity0 {
+.is-logoBtn:hover {
   opacity: 0.7;
 }
 .logoStyle {
@@ -167,7 +167,7 @@ button.is-orange {
   display: flex;
 }
 .arrow::before {
-  content: " List Off ";
+  content: " List Lock ";
   margin-right: 5px;
 }
 .remove {
@@ -175,7 +175,7 @@ button.is-orange {
   display: flex;
 }
 .remove::before {
-  content: "Remove List";
+  content: "Clear List";
   margin-right: 5px;
 }
 .add::before {
@@ -207,7 +207,7 @@ button.is-orange {
   margin: 0 auto;
 }
 .list-scroll {
-  max-height: 300px;
+  max-height: 320px;
   overflow-y: scroll;
 }
 .list-item {

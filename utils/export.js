@@ -11,8 +11,8 @@ exportBtn.addEventListener("click", () => {
 
   var xls = new XlsExport([...values], "list");
 
-  console.log(values);
-  // xls.exportToXLS(fileNameVal);
-  xls.exportToXLS(fileNameVal);
+  console.log(xls._data);
+  if (!xls._data.length <= 0) {
+    xls.exportToXLS(fileNameVal);
+  }
 });
-

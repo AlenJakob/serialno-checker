@@ -1,4 +1,4 @@
-import { getFullDate } from "../validateDate";
+// import { getFullDate } from "../validateDate";
 
 export function insertListDom(domList, arrayList, getFullDate) {
   arrayList.forEach((el, i) => {
