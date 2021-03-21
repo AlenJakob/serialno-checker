@@ -26,8 +26,7 @@ let OutPut = {
   displaySerialNum4: document.querySelector("#out4"),
   displaySerialNum5: document.querySelector("#out5"),
   displaySerialNum6: document.querySelector("#out6"),
-  displaySerialNum7: document.querySelector("#out7"),
-  displayMonth: document.querySelector("#out8"),
+  displaySerialNum7: document.querySelector("#out7")
 };
 
 function displaySerialNumberToDom(serial) {
@@ -51,7 +50,10 @@ function displaySerialNumberToDom(serial) {
       OutPut[el].classList.add("tag", "is-medium");
     }
   }
-  checkDate(getDateOfProduction);
+
+  console.log(getDateOfProduction)
+  getFullDate(getDateOfProduction)
+  // checkDate(getDateOfProduction);
 }
 
 document.querySelector("#serialNum").addEventListener("keyup", (e) => {
@@ -76,7 +78,6 @@ checkButton.addEventListener("click", (e) => {
       displaySerialNumberToDom(serialNumber);
     }, 800);
   }
-  console.log();
   serialNumber.value
     ? (outNumVal.innerText = serialNumber.value)
     : (outNumVal.innerText = "missing value");
@@ -109,98 +110,6 @@ const checkInput = (serialNumber) => {
     popup.classList.add("is-on-warranty", "message");
   }
 };
-// End Of chekcing
-function checkDate(date) {
-  // ==========================
-  let yearQ = 2016;
-  let yearR = 2017;
-  let yearS = 2018;
-  let yearT = 2019;
-  let yearU = 2020;
-  let yearV = 2021;
-  let yearW = 2022;
-  let yearX = 2023;
-  // ==========================
-  let yearData = "";
-  let monthData = "";
-  let monthDataDecimal = "";
-  let dayData = "";
-  if (date) {
-    switch (date[0]) {
-      case "Q":
-        yearData = yearQ;
-        break;
-      case "R":
-        yearData = yearR;
-        break;
-      case "S":
-        yearData = yearS;
-        break;
-      case "T":
-        yearData = yearT;
-        break;
-      case "U":
-        yearData = yearU;
-        break;
-      case "V":
-        yearData = yearV;
-        break;
-      case "W":
-        yearData = yearW;
-        break;
-      case "X":
-        yearData = yearX;
-        break;
-      default:
-        yearData = "No Data";
-        console.log(`Sorry, have no information about that  ${date[0]}.`);
-    }
-  }
-
-  //check month of production and display to Dom
-  // function testMonth() {}
-  // testMonth(date[1], monthDataDecimal);
-
-  let month = date[1] ? date[1].toUpperCase() : "";
-  let entries = Object.entries(months);
-  entries.forEach(([key, val], index) => {
-    if (month == key.toUpperCase()) {
-      monthData = val;
-      monthDataDecimal = index + 1;
-    }
-  });
-
-  //Return Day
-  dayData = date[2] + date[3];
-
-  displayDataToDom(yearData, monthData, dayData);
-  const resultOfMonthsFromProd = checkFromProd(
-    new Date(yearData, monthDataDecimal),
-    new Date()
-  );
-  OutPut.displayMonth.innerHTML = resultOfMonthsFromProd
-    ? resultOfMonthsFromProd
-    : "No data to calulate !";
-}
-
-// function using to display data into Dom
-const displayDataToDom = (...fullDate) => {
-  const [yearData, monthData, dayData] = fullDate;
-  const displayDate = {
-    year: document.querySelector("#outYear"),
-    month: document.querySelector("#outMonth"),
-    day: document.querySelector("#outDay"),
-  };
-
-  for (let el in displayDate) {
-    displayDate[el].classList.add("tag", "is-medium");
-  }
-
-  displayDate.year.innerText = yearData ? yearData : "No Data";
-  displayDate.month.innerText = monthData ? monthData : "No Data";
-  displayDate.day.innerText = dayData ? dayData : "No Data";
-};
-
 //  handle checkbox display and hide
 
 checkInfo.addEventListener("change", (e) => {

@@ -4,6 +4,17 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color: rgba(255, 166, 0, 0.164);
+}
+
+.video {
+  opacity: 0.8;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+}
+
 .container {
   border: 1px solid grey;
 }
@@ -44,6 +55,7 @@
   color: rgb(235, 102, 8);
   font-size: 1.4rem;
 }
+
 .logo {
   width: 250px;
 }
@@ -62,9 +74,11 @@
 .m-1 {
   margin-top: 1rem !important;
 }
+
 .my-1 {
   margin: 0.5rem 0;
 }
+
 .m-2 {
   margin: 2rem !important;
 }
@@ -85,9 +99,11 @@
 .p-2 {
   padding: 0.2rem !important;
 }
+
 .p-0 {
   padding: 0 !important;
 }
+
 .has-text-orange {
   color: rgb(235, 102, 8);
 }
@@ -105,38 +121,48 @@
   font-weight: bold;
   max-height: 50px;
 }
+
 input[type="checkbox"] {
   margin: 1rem;
   cursor: pointer;
   transform: scale(1.5);
 }
+
 .message {
   padding: 1rem !important;
 }
+
 .is-on-warranty {
   color: #fff;
   background-color: #48c774;
 }
+
 .check-is-warranty {
   color: #fff;
   background-color: orange;
 }
+
 .is-out-warranty {
   color: #fff;
   background-color: red;
 }
+
 .infobox {
   display: none;
 }
+
 .buttons {
   margin-top: 1rem;
 }
+
 .message-header {
   background-color: #00d1b2;
 }
+
 .message-header {
   background-color: rgb(235, 102, 8);
 }
+
 button.is-orange {
   background-color: rgb(235, 102, 8);
   color: #fff;
@@ -149,48 +175,61 @@ button.is-orange {
 .content-mt-3 {
   margin-top: 3rem !important;
 }
+
 .info-mt-2 {
   margin-top: 2rem;
 }
+
 .is-logoBtn:hover {
   opacity: 0.7;
 }
+
 .logoStyle {
   color: rgb(235, 102, 8) !important;
 }
+
 .logoStyle:hover {
   color: rgb(230, 192, 137) !important;
 }
+
 .is-text-small {
   font-size: 0.8rem;
 }
+
 .arrow {
   margin-left: 1rem;
   display: flex;
 }
+
 .arrow::before {
   content: " List Lock ";
   margin-right: 5px;
 }
+
 .remove {
   margin-left: 1rem;
   display: flex;
 }
+
 .remove::before {
   content: "Clear List";
   margin-right: 5px;
 }
+
 .add::before {
   content: "Add ";
   margin-right: 5px;
 }
+
 .check::before {
   content: "Check ";
   margin-right: 5px;
 }
+
 .show-off {
   display: none;
 }
+
 .show-on {
   display: block !important;
 }
@@ -198,30 +237,37 @@ button.is-orange {
 .fa-arrow-circle-down {
   display: none;
 }
+
 .button {
   margin-left: 5px;
 }
+
 .button.is-dark i {
   color: #fff !important;
 }
+
 .container_view {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .list-scroll {
   max-height: 320px;
   overflow-y: scroll;
 }
+
 .list-item {
   list-style: decimal-leading-zero !important;
 }
+
 .button.is-danger {
   background-color: #c90c0c;
 }
-.button.is-danger.is-hovered,
-.button.is-danger:hover {
+
+.button.is-danger.is-hovered, .button.is-danger:hover {
   background-color: #b40909;
 }
+
 .tag:not(body) {
   width: 100%;
 }
@@ -230,6 +276,7 @@ button.is-orange {
   cursor: pointer;
   width: 15px;
 }
+
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(129, 129, 129, 0.3);
   border-radius: 2px;
@@ -240,9 +287,11 @@ button.is-orange {
   border-radius: 2px;
   cursor: pointer;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(88, 81, 76);
 }
+
 ::-webkit-scrollbar {
   cursor: pointer;
 }
@@ -250,11 +299,12 @@ button.is-orange {
 .mb-2 {
   margin-bottom: 20px;
 }
+
 .mt-2 {
   margin-top: 20px;
 }
-.is-divider,
-.is-divider-vertical {
+
+.is-divider, .is-divider-vertical {
   display: block;
   position: relative;
   border-top: 0.1rem solid #dbdbdb;
@@ -267,12 +317,15 @@ button.is-orange {
   animation: addItem 1s;
   animation-fill-mode: forwards;
 }
+
 .has-text-danger-dark {
   color: lightcoral !important;
 }
+
 .has-text-danger {
   color: red !important;
 }
+
 @keyframes addItem {
   0% {
     transform: scale(0.5);
@@ -288,8 +341,7 @@ button.is-orange {
   .button:before {
     content: none;
   }
-  .column.list,
-  .column {
+  .column.list, .column {
     width: 100% !important;
     padding: 5px 8px;
     margin: 8px 0;
@@ -306,8 +358,7 @@ button.is-orange {
   }
 }
 
-.import-window,
-.export-window {
+.import-window, .export-window {
   animation: navAnim 0.2s ease-in-out;
 }
 
@@ -326,13 +377,16 @@ button.is-orange {
     height: auto;
   }
 }
+
 .legend-list {
   padding: 0.8rem;
 }
+
 .legend-list li {
   max-width: 50%;
   border-bottom: 1px solid #dbdbdb;
 }
+
 .help-hint {
   display: flex;
   align-items: center;
