@@ -12,20 +12,8 @@ let yearW = 2022;
 let yearX = 2023;
 // ==========================
 const displayMonth = document.querySelector("#out8");
-export default function validateDate(date) {
-  const regex = /^[A-z0-9]{4}/i;
-  // console.log(num.match(regex)) COMING_SOON !
 
-  //   let txt = date.substr(5, 4).split("");
-  //   let result = txt.match(regex);
-  //   console.log(txt);
-  //   console.log(result);
-  //   console.log("***Date*********************************************");
-  //   console.log(txt);
-  //   console.log("***Date*********************************************");
-}
 
-// validateDate("040F5TC200584");
 
 // Test Year
 export function getFullDate(date) {

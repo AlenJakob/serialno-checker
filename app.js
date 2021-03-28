@@ -6,8 +6,7 @@ import { footer } from "./utils/footer";
 
 const testNum = "018F7R33010269";
 // logotype display
-import { logo } from "./utils/logo";
-document.querySelector(".logoDom").innerHTML = logo;
+
 
 document.querySelector("#footer-in").innerHTML = footer;
 
