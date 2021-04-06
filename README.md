@@ -2,7 +2,7 @@
 
 #  Serial Number - Check
 #### simple app created with Vanilla JavaScript.
-## Live : https://bafang-warranty-checker.web.app/
+## Live : https://bafang-warranty.web.app
 ##### The application allows us to check motor serial number
  - Date of production
  - Place of production
