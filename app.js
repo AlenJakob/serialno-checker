@@ -37,7 +37,7 @@ function displaySerialNumberToDom(serial) {
   let partTwo = n3 + n4;
   let partThree = n5 + n6 + n7 + n8;
   let partFour = n9 + n10 + n11 + n12;
-
+console.log(partOne);
   if (SerialNum.length === 13) {
     OutPut["displaySerialNum4"].innerText = partOne;
     OutPut["displaySerialNum5"].innerText = partTwo;
