@@ -1,24 +1,21 @@
 import { getFullDate } from "./validateDate";
+import { insertListDom } from "../utils/dom/insertToDom";
+
+import { v4 as uniqueItemId } from "uuid";
 let selectedFile;
-console.log(window.XLS);
 document.getElementById("input").addEventListener("change", (event) => {
   selectedFile = event.target.files[0];
 });
 
 let data = [
   {
-    name: "jayanth",
-    data: "scd",
-    abc: "sdef",
+    id: "jayanth",
+    serial: "scd",
   },
 ];
 
 document.getElementById("importBtn").addEventListener("click", () => {
   const domList = document.querySelector("#list");
-  //   domList.classList.contains("list-off")
-  //     ? domList.classList.remove("list-off")
-  //     : domList.classList
-  //         .add("list-off");
 
   XLS.utils.json_to_sheet(data, "out.xls");
   if (selectedFile) {
@@ -26,34 +23,27 @@ document.getElementById("importBtn").addEventListener("click", () => {
     fileReader.readAsBinaryString(selectedFile);
     fileReader.onload = (event) => {
       let data = event.target.result;
+
       let workbook = XLS.read(data, { type: "binary" });
+
       workbook.SheetNames.forEach((sheet) => {
         let rowObject = XLS.utils.sheet_to_row_object_array(
           workbook.Sheets[sheet]
         );
 
+        rowObject.forEach((e) => {
+          e["id"] = uniqueItemId();
+        });
         localStorage.setItem(
           "Serial_List",
           JSON.stringify(rowObject).replace(/ /g, "")
         );
 
         const list = JSON.parse(localStorage.getItem("Serial_List"));
-        // for (let item of list) {
-        //   console.log(item);
-        // }? el.serialNumber.substr(5, 4) : "Try Again"
-        document.getElementById("list").classList.remove("show-off");
-        document.getElementById("list").innerHTML = ``;
 
-        list.forEach((el, i) => {
-          if (el != undefined) {
-            document.getElementById("list").innerHTML += `
-            <li class="list-item" data-id="${i}"><b>${i + 1}. </b> ${
-              el.serial
-            }  <i class="${getFullDate(el.serial.substr(5, 4))}
-           fas fa-check-square"></i>  <i class="delete" style="float:right";></i></li>
-            `;
-          }
-        });
+        document.getElementById("list").classList.remove("show-off");
+        // domList.innerHTML = ``;
+        insertListDom(domList, list, getFullDate);
       });
     };
   }

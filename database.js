@@ -1,52 +1,32 @@
 console.log("Data base... ");
-import { serialNumIn } from "./app";
 import { getFullDate } from "./utils/validateDate";
-
+import { insertListDom } from "./utils/dom/insertToDom";
+import { v4 as uniqueItemId } from "uuid";
 // console.log("TEST:",getFullDate('TC20'));
 // count on and out of warranty
 let onWarranty = 0;
 let OutOfWarranty = 0;
 const addToList = document.querySelector("#addToList");
 
-const listOfNum = document.querySelector("#list");
+const serialNumIn = document.querySelector("#serialNum");
+const domList = document.querySelector("#list");
 const showListBtn = document.querySelector(".arrow");
 const removeBtn = document.querySelector("#remove");
 const messageOfStatus = document.querySelector("#message");
 (function () {
   if (localStorage.getItem("Serial_List")) {
     // localStorage.setItem("Serial_List", JSON.stringify([]));
-    const localList = JSON.parse(localStorage.getItem("Serial_List"));
 
-    localList.reverse().forEach((el, i) => {
-      // getFullDate(el.serial.substr(5,4))
-      if (el) {
-        listOfNum.innerHTML += `
-        <li class="list-item" data-id="${i}"><b>${i + 1}. </b>
-        <span> ${el.serial.toUpperCase()}</span>
-        <i class="${getFullDate(
-          el.serial.substr(5, 4)
-        )} fas fa-check-square"></i>
-        <i  class="delete" style="float:right";></i>
-     </li>
-        `;
-      }
-    });
-
-    localList.forEach((e) => {
-      // console.log(e.serial);
-    });
-  } else {
-    listOfNum.innerHTML += `
-    empty
-    `;
+    let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
+    insertListDom(domList, list, getFullDate);
   }
 })();
 
-function getSerialNum(ev) {
-  ev.preventDefault();
+function getSerialNum(e) {
+  e.preventDefault();
   let itemNum = serialNumIn.value.replace(/ /g, "");
   let dropHistory = JSON.parse(localStorage.getItem("Serial_List")) || [];
-  // console.log(checkTwoValues(dropHistory, itemNum));
+
   // test if the num is on the list
   if (checkTwoValues(dropHistory, itemNum)) {
     hideMessage("is-warning", "The number is already on the list");
@@ -66,31 +46,21 @@ function getSerialNum(ev) {
     // Success ADDED
     serialNumIn.value = ``.toUpperCase();
     hideMessage("is-success", "You have added you serial number to list");
-    listOfNum.innerHTML = ``;
+    domList.innerHTML = ``;
     // Adding number to List
-    dropHistory.push({ serial: itemNum.toUpperCase() });
+    dropHistory.push({ id: uniqueItemId(), serial: itemNum.toUpperCase() });
     localStorage.setItem("Serial_List", JSON.stringify(dropHistory));
-    dropHistory.reverse().forEach((el, i) => {
-      listOfNum.innerHTML += `
-    <li class="list-item item" data-id="${i}"><b>${i + 1}. </b> ${
-        el.serial
-      }  <i class="${getFullDate(
-        el.serial.substr(5, 4)
-      )} fas fa-check-square"></i>
-      <i class="delete" style="float:right";></i>
-      </li>
-  `;
-    });
+    let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
+    insertListDom(domList, list, getFullDate);
   }
 }
 // helper to return 1 true or 0 false
 
-function checkTwoValues(listOfNumbers, givenNumber) {
+function checkTwoValues(list, givenNumber) {
   let arrList = JSON.parse(localStorage.getItem("Serial_List")) || [];
-  const list = arrList.map((el) => {
+  list = arrList.map((el) => {
     return el.serial;
   });
-
   if (list.includes(givenNumber.toUpperCase())) {
     return true;
   }
@@ -102,17 +72,15 @@ function checkTwoValues(listOfNumbers, givenNumber) {
   } else {
     return false;
   }
-
-  // console.log(givenNumber);
 }
 
 addToList.addEventListener("click", getSerialNum);
 document.querySelector("#ico1").classList.add("is-hidden");
 showListBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  listOfNum.classList.toggle("show-off");
+  domList.classList.toggle("show-off");
 
-  if (!listOfNum.classList.contains("show-off")) {
+  if (!domList.classList.contains("show-off")) {
     document.querySelector("#ico1").classList.add("is-hidden");
     document.querySelector("#ico2").classList.remove("is-hidden");
   } else {
@@ -123,7 +91,7 @@ showListBtn.addEventListener("click", (e) => {
 
 removeBtn.addEventListener("click", () => {
   localStorage.clear();
-  listOfNum.innerHTML = `empty`;
+  domList.innerHTML = `List is empty`;
   hideMessage("is-warning", "List has been cleared");
 });
 

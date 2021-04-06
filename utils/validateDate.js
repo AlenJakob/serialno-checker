@@ -13,7 +13,7 @@ let yearX = 2023;
 
 export default function validateDate(date) {
   const regex = /^[A-z0-9]{4}/i;
-  // console.log(num.match(regex))
+  // console.log(num.match(regex)) COMING_SOON !
 
   //   let txt = date.substr(5, 4).split("");
   //   let result = txt.match(regex);
@@ -66,23 +66,26 @@ export function getFullDate(date) {
 
   let currentMonth = date ? date[1].toUpperCase() : "";
   let entries = Object.entries(months);
-  entries.forEach(([key, val], index) => {
-    if (currentMonth == key.toUpperCase()) {
-      month = val;
-      monthDecimal = index + 1;
-    } else {
-      //  if month are not correct view a message
-      // console.log("Year is not recognized");
-      return;
-    }
-  });
+  if (entries) {
+    entries.forEach(([key, val], index) => {
+      if (currentMonth == key.toUpperCase()) {
+        month = val;
+        monthDecimal = index + 1;
+      } else {
+        //  if month are not correct view a message
+        console.log("Year is not recognized");
+        return;
+      }
+    });
+  }
 
   let currFromProd = checkFromProd(new Date(year, monthDecimal), new Date());
-
   if (currFromProd > 30) {
     serialNumStatus = "has-text-danger";
   } else if (currFromProd < 30) {
     serialNumStatus = "has-text-success";
+  } else {
+    serialNumStatus = "has-text-danger-dark";
   }
 
   return serialNumStatus;
