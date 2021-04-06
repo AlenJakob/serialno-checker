@@ -358,5 +358,28 @@
         }
       };
     </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBOekB2ZZl0HdSMH5ouyrjfbboc6eR9GjQ",
+        authDomain: "bafang-warranty.firebaseapp.com",
+        projectId: "bafang-warranty",
+        storageBucket: "bafang-warranty.appspot.com",
+        messagingSenderId: "585718449491",
+        appId: "1:585718449491:web:e606529deaaa9873c5cda6",
+        measurementId: "G-JN3DBPWNS3",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
