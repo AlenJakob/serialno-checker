@@ -14,9 +14,7 @@ const showListBtn = document.querySelector(".arrow");
 const removeBtn = document.querySelector("#remove");
 const messageOfStatus = document.querySelector("#message");
 (function () {
-  if (localStorage.getItem("Serial_List")) {
-    // localStorage.setItem("Serial_List", JSON.stringify([]));
-
+  if (localStorage.getItem("Serial_List")) {;
     let list = JSON.parse(localStorage.getItem("Serial_List")) || [];
     insertListDom(domList, list, getFullDate);
   }

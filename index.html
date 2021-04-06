@@ -9,32 +9,26 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"
     />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <!-- Logotypeof Bafang -->
+    <video
+      class="hero is-halfheight video"
+      src="/production ID_3772669.mp4"
+      autoplay="true"
+      loop="true"
+    ></video>
 
-    <div class="columns is-centered">
-      <a
-        href="https://bafang-e.com"
-        class="logoDom is-logoBtn image is-one-quarter column"
-      ></a>
-    </div>
-    <!-- Old Logo -->
-    <!-- <div class="columns">
+    <div class="columns has-background-white p-2">
       <div class="column">
         <a class="btn-logo" href="https://bafang-e.com">
           <div class="title has-text-centered is-size-1 logoStyle">Bafang</div>
         </a>
         <div class="subtitle has-text-centered logoStyle">Warranty Checker</div>
       </div>
-    </div> -->
+    </div>
 
     <div
       class="container_view columns is-justify-content-space-evenly content-mt-3"
@@ -337,7 +331,6 @@
       </div>
     </div>
     <div class="columns is-centered info-mt-2"></div>
-
     <div id="footer-in"></div>
     <script src="app.js"></script>
     <script src="database.js"></script>
@@ -345,6 +338,7 @@
     <script src="/utils/export.js"></script>
     <script src="/utils/displayFileWindow.js"></script>
     <script src="/utils/validateDate.js"></script>
+
     <script>
       const fileInput = document.querySelector(
         "#file-js-example input[type=file]"
@@ -358,6 +352,12 @@
         }
       };
     </script>
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
 
@@ -375,7 +375,6 @@
         storageBucket: "bafang-warranty.appspot.com",
         messagingSenderId: "585718449491",
         appId: "1:585718449491:web:e606529deaaa9873c5cda6",
-        measurementId: "G-JN3DBPWNS3",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);

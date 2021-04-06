@@ -1,5 +1,6 @@
 import { months } from "./months";
 import { checkFromProd } from "./countMonths";
+import { displayDataToDom } from "./checkAndInsertToDom"
 // ==========================
 let yearQ = 2016;
 let yearR = 2017;
@@ -10,29 +11,16 @@ let yearV = 2021;
 let yearW = 2022;
 let yearX = 2023;
 // ==========================
+const displayMonth = document.querySelector("#out8");
 
-export default function validateDate(date) {
-  const regex = /^[A-z0-9]{4}/i;
-  // console.log(num.match(regex)) COMING_SOON !
 
-  //   let txt = date.substr(5, 4).split("");
-  //   let result = txt.match(regex);
-  //   console.log(txt);
-  //   console.log(result);
-  //   console.log("***Date*********************************************");
-  //   console.log(txt);
-  //   console.log("***Date*********************************************");
-}
-
-// validateDate("040F5TC200584");
 
 // Test Year
 export function getFullDate(date) {
-  let onWarranty = 0;
-  let OutOfWarranty = 0;
   let serialNumStatus = "";
   let year = "";
   let month = "";
+  let dayData = "";
   let monthDecimal = "";
   switch (date[0]) {
     case "Q":
@@ -60,7 +48,7 @@ export function getFullDate(date) {
       year = yearX;
       break;
     default:
-      year = "Data is not Recognized";
+      year = "No Data !!!";
       console.log(`Sorry, have no information about that  ${date[0]}.`);
   }
 
@@ -73,11 +61,21 @@ export function getFullDate(date) {
         monthDecimal = index + 1;
       } else {
         //  if month are not correct view a message
-        console.log("Year is not recognized");
         return;
       }
     });
   }
+
+
+  const resultOfMonthsFromProd = checkFromProd(
+    new Date(year, monthDecimal),
+    new Date()
+  );
+  displayMonth.innerHTML = resultOfMonthsFromProd
+    ? resultOfMonthsFromProd
+    : "No data to calulate !";
+  //Return Day
+  dayData = date[2] + date[3];
 
   let currFromProd = checkFromProd(new Date(year, monthDecimal), new Date());
   if (currFromProd > 30) {
@@ -87,7 +85,7 @@ export function getFullDate(date) {
   } else {
     serialNumStatus = "has-text-danger-dark";
   }
-
+  displayDataToDom(year, month, dayData)
   return serialNumStatus;
   //   return [year, month, date[2] + date[3]];
 }
