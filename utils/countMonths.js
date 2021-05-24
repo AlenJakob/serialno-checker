@@ -12,18 +12,3 @@ export function checkFromProd(dateFrom, dateTo) {
     return countedMonth;
   }
 }
-// months pattern
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
